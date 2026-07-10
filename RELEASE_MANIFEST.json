@@ -556,8 +556,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 18112,
-    "sha256": "3a3c412e966a1624fccb5457aa32e177c031c58baedee8080beafa0b6bb17287"
+    "bytes": 1751,
+    "sha256": "ded32c1e479e60406b70ce8e5b488eadd3c4bd05055be9937d64df3dcba4f93d"
   },
   {
     "path": "run_neuraedge_private_full.ps1",

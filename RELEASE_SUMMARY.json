@@ -1,8 +1,8 @@
 {
   "package": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\github_private_release\\mafpe_push",
   "files": 113,
-  "bytes": 89256229,
-  "generated_utc": "2026-07-10T08:55:15.8965096Z",
+  "bytes": 89239868,
+  "generated_utc": "2026-07-10T08:55:57.0452940Z",
   "canonical_accuracy": "9551/10000 = 95.51%",
   "rtl_score_mismatches": 0,
   "rtl_prediction_mismatches": 0,
