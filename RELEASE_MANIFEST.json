@@ -6,8 +6,8 @@
   },
   {
     "path": "artifacts/neuraedge-cifar10-pynq-accelerator.zip",
-    "bytes": 23889276,
-    "sha256": "5282aaf896fdc953c7e42fbc1b0ff88d5269f498c3043a2443eccfc2090d6696"
+    "bytes": 23889301,
+    "sha256": "a595ea6364f0fb3ce4282a8ef61e1caa6758a7e04d58687efd70e484255b6867"
   },
   {
     "path": "cifar10_neuromorphic/cifar10_spikingformer_head_accelerator.vcd",
@@ -641,8 +641,8 @@
   },
   {
     "path": "PRIVATE_RELEASE_README.md",
-    "bytes": 2194,
-    "sha256": "d3589875f68788cb6cca1515d333852c2684bb54e17df19ac1fcb89496a4c882"
+    "bytes": 2208,
+    "sha256": "9461b139b011052c7cbcf0c5586015f1d228b95bc412578aa39de5b054e58287"
   },
   {
     "path": "PRIVATE_REPO_POLICY.md",
@@ -651,23 +651,23 @@
   },
   {
     "path": "README.md",
-    "bytes": 2194,
-    "sha256": "d3589875f68788cb6cca1515d333852c2684bb54e17df19ac1fcb89496a4c882"
+    "bytes": 2208,
+    "sha256": "9461b139b011052c7cbcf0c5586015f1d228b95bc412578aa39de5b054e58287"
   },
   {
     "path": "RELEASE_MANIFEST.csv",
     "bytes": 21164,
-    "sha256": "20f1df29d878a9abae2f6bf578189407f59b66cb37cdf6267351334e981d17fe"
+    "sha256": "9d13859b94d931ee33db90e1e661580ae1b0acec9d804e9192bdc0fe1e8068f4"
   },
   {
     "path": "RELEASE_MANIFEST.json",
     "bytes": 28112,
-    "sha256": "5bace0448b907453caceb99ffb86ad82c4dd71b160cd32438b5e2d836d9e6c4d"
+    "sha256": "3a1d885a103534d5c72fbe273762af86ae73399022fa9c11e3fa24771df0ac23"
   },
   {
     "path": "RELEASE_SUMMARY.json",
     "bytes": 1182,
-    "sha256": "fb43ab5bbe63589f8e5d661ae7c860c32d1e4de8764de6bccb41210d14d9aa60"
+    "sha256": "0bd4e8fff4e0c368c5d020bbde5f2909760356119fd2595f82ead821ea6778d5"
   },
   {
     "path": "requirements_export.txt",

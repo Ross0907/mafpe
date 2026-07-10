@@ -1,8 +1,8 @@
 {
   "package": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\github_private_release\\neuraedge-cifar10-pynq-accelerator",
   "files": 137,
-  "bytes": 107280078,
-  "generated_utc": "2026-07-10T14:17:37.5410637Z",
+  "bytes": 107280131,
+  "generated_utc": "2026-07-10T14:19:45.6224960Z",
   "canonical_accuracy": "9551/10000 = 95.51%",
   "rtl_score_mismatches": 0,
   "rtl_prediction_mismatches": 0,
@@ -29,5 +29,5 @@
   "saif_learning_power_w": 0.116,
   "saif_learning_dynamic_w": 0.011,
   "saif_confidence": "Medium",
-  "artifact_zip_sha256": "5282aaf896fdc953c7e42fbc1b0ff88d5269f498c3043a2443eccfc2090d6696"
+  "artifact_zip_sha256": "a595ea6364f0fb3ce4282a8ef61e1caa6758a7e04d58687efd70e484255b6867"
 }
