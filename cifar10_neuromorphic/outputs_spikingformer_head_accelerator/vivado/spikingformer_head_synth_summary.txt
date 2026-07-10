@@ -1,0 +1,4 @@
+top=cifar10_spikingformer_head_pynq_axi_stream_top
+part=xc7z020clg400-1
+clock_ns=10
+timing_met=1

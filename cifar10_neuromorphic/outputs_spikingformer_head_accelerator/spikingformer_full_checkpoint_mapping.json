@@ -1,0 +1,830 @@
+{
+  "checkpoint": "cifar10_neuromorphic\\outputs_upstream_spikingformer\\spikingformer_4_384_400e\\model_best.pth.tar",
+  "checkpoint_metric_top1": null,
+  "checkpoint_metric_note": "Current measured accuracy is written after export as exported_float_top1_pct and exported_fixed_top1_pct.",
+  "source_model": "external_research/Spikingformer/cifar10/model.py",
+  "topology": {
+    "time_steps": 4,
+    "image": [
+      3,
+      32,
+      32
+    ],
+    "tokenizer": "5 convolution stages with LIF gates after stages 0-3 and 2 max-pool stages",
+    "transformer_blocks": 4,
+    "embed_dim": 384,
+    "attention_heads": 12,
+    "mlp_ratio": 4,
+    "classifier": [
+      384,
+      10
+    ]
+  },
+  "mapped_layers": [
+    {
+      "name": "patch_embed.block0_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          48,
+          3,
+          3,
+          3
+        ],
+        "min": -2.50614333152771,
+        "max": 3.190666437149048,
+        "mean": -0.003333771601319313,
+        "std": 0.6223258376121521
+      },
+      "bias": {
+        "shape": [
+          48
+        ],
+        "min": -0.23819592595100403,
+        "max": 1.6733773946762085,
+        "mean": 0.5758858323097229,
+        "std": 0.5740017890930176
+      },
+      "weight_values": 1296,
+      "bias_values": 48
+    },
+    {
+      "name": "patch_embed.block1_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          96,
+          48,
+          3,
+          3
+        ],
+        "min": -0.9142062067985535,
+        "max": 0.9829674363136292,
+        "mean": -0.009009545668959618,
+        "std": 0.1078478991985321
+      },
+      "bias": {
+        "shape": [
+          96
+        ],
+        "min": -0.548782467842102,
+        "max": 1.9473028182983398,
+        "mean": 0.7071928381919861,
+        "std": 0.40620872378349304
+      },
+      "weight_values": 41472,
+      "bias_values": 96
+    },
+    {
+      "name": "patch_embed.block2_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          192,
+          96,
+          3,
+          3
+        ],
+        "min": -0.9409529566764832,
+        "max": 0.49619942903518677,
+        "mean": -0.01247677393257618,
+        "std": 0.07327531278133392
+      },
+      "bias": {
+        "shape": [
+          192
+        ],
+        "min": -0.6921901702880859,
+        "max": 1.7957689762115479,
+        "mean": 0.8538787961006165,
+        "std": 0.43150636553764343
+      },
+      "weight_values": 165888,
+      "bias_values": 192
+    },
+    {
+      "name": "patch_embed.block3_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          192,
+          3,
+          3
+        ],
+        "min": -0.36984917521476746,
+        "max": 0.7148525714874268,
+        "mean": -0.0052684457041323185,
+        "std": 0.04271867126226425
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.3697054386138916,
+        "max": 1.927790641784668,
+        "mean": 0.7170496582984924,
+        "std": 0.4856198728084564
+      },
+      "weight_values": 663552,
+      "bias_values": 384
+    },
+    {
+      "name": "patch_embed.block4_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          3,
+          3
+        ],
+        "min": -0.3044402599334717,
+        "max": 0.4266248643398285,
+        "mean": -0.002027537440881133,
+        "std": 0.03846673667430878
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.3446540832519531,
+        "max": 2.4046339988708496,
+        "mean": 0.5964246988296509,
+        "std": 0.505693256855011
+      },
+      "weight_values": 1327104,
+      "bias_values": 384
+    },
+    {
+      "name": "block.0.attn.q_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -1.3744786977767944,
+        "max": 1.848106026649475,
+        "mean": -0.025407304987311363,
+        "std": 0.19528476893901825
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.0689324140548706,
+        "max": 4.127852916717529,
+        "mean": 1.2219548225402832,
+        "std": 0.8272796869277954
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.0.attn.k_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -1.4974271059036255,
+        "max": 1.3126863241195679,
+        "mean": -0.02127017080783844,
+        "std": 0.17625585198402405
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.8019421100616455,
+        "max": 2.5955848693847656,
+        "mean": 0.7903247475624084,
+        "std": 0.5348641872406006
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.0.attn.v_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.9118630290031433,
+        "max": 0.8818633556365967,
+        "mean": -0.0159718319773674,
+        "std": 0.18107926845550537
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.9955093860626221,
+        "max": 1.9972641468048096,
+        "mean": 0.5760461091995239,
+        "std": 0.5307523012161255
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.0.attn.proj_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.8497253060340881,
+        "max": 0.8021771311759949,
+        "mean": -0.0027945053298026323,
+        "std": 0.05277850106358528
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.2671234607696533,
+        "max": 0.8612553477287292,
+        "mean": 0.06439857929944992,
+        "std": 0.34303367137908936
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.0.mlp.mlp1_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "min": -1.002990484237671,
+        "max": 0.7917926907539368,
+        "mean": -0.023559894412755966,
+        "std": 0.14656397700309753
+      },
+      "bias": {
+        "shape": [
+          1536
+        ],
+        "min": -1.3729009628295898,
+        "max": 2.022522449493408,
+        "mean": 0.3827367126941681,
+        "std": 0.5317100286483765
+      },
+      "weight_values": 589824,
+      "bias_values": 1536
+    },
+    {
+      "name": "block.0.mlp.mlp2_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "min": -0.9488153457641602,
+        "max": 0.724384069442749,
+        "mean": -0.009841923601925373,
+        "std": 0.1324845254421234
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.6963443756103516,
+        "max": 1.0189917087554932,
+        "mean": 0.23662537336349487,
+        "std": 0.3042420446872711
+      },
+      "weight_values": 589824,
+      "bias_values": 384
+    },
+    {
+      "name": "block.1.attn.q_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.9979044198989868,
+        "max": 0.9208885431289673,
+        "mean": -0.006748708430677652,
+        "std": 0.1641896516084671
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.6445984840393066,
+        "max": 3.284482002258301,
+        "mean": 0.4339497983455658,
+        "std": 0.6494154930114746
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.1.attn.k_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.7188839912414551,
+        "max": 0.8242977261543274,
+        "mean": -0.010289505124092102,
+        "std": 0.14964109659194946
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.48998430371284485,
+        "max": 3.100226879119873,
+        "mean": 0.5718725323677063,
+        "std": 0.4861498773097992
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.1.attn.v_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.6752961277961731,
+        "max": 0.7818453907966614,
+        "mean": -0.008826430886983871,
+        "std": 0.14642855525016785
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.3267289400100708,
+        "max": 2.226287603378296,
+        "mean": 0.45216986536979675,
+        "std": 0.5083391666412354
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.1.attn.proj_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.7205316424369812,
+        "max": 0.9184109568595886,
+        "mean": -0.0022937741596251726,
+        "std": 0.10061977058649063
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.0765517950057983,
+        "max": 1.259390115737915,
+        "mean": 0.060362543910741806,
+        "std": 0.37857526540756226
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.1.mlp.mlp1_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "min": -0.8153898119926453,
+        "max": 0.566940188407898,
+        "mean": -0.012669879011809826,
+        "std": 0.09498892724514008
+      },
+      "bias": {
+        "shape": [
+          1536
+        ],
+        "min": -3.3239519596099854,
+        "max": 2.9907662868499756,
+        "mean": 0.26124393939971924,
+        "std": 0.7534909248352051
+      },
+      "weight_values": 589824,
+      "bias_values": 1536
+    },
+    {
+      "name": "block.1.mlp.mlp2_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "min": -1.4601809978485107,
+        "max": 0.9201261401176453,
+        "mean": -0.006490660831332207,
+        "std": 0.16100184619426727
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.8123788237571716,
+        "max": 1.269179344177246,
+        "mean": 0.15343470871448517,
+        "std": 0.32272228598594666
+      },
+      "weight_values": 589824,
+      "bias_values": 384
+    },
+    {
+      "name": "block.2.attn.q_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.7056547999382019,
+        "max": 0.7181417942047119,
+        "mean": -0.0022891026455909014,
+        "std": 0.12704601883888245
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.7902514934539795,
+        "max": 2.470968723297119,
+        "mean": 0.25576385855674744,
+        "std": 0.6840736269950867
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.2.attn.k_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.681443452835083,
+        "max": 0.6613776087760925,
+        "mean": -0.007235534489154816,
+        "std": 0.11599675565958023
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.4675791263580322,
+        "max": 3.4148175716400146,
+        "mean": 0.3896898031234741,
+        "std": 0.6571430563926697
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.2.attn.v_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.6084439158439636,
+        "max": 0.5842387080192566,
+        "mean": -0.004800276830792427,
+        "std": 0.1149488240480423
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -3.1025197505950928,
+        "max": 2.5038270950317383,
+        "mean": 0.2918884754180908,
+        "std": 0.7514907121658325
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.2.attn.proj_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.7341841459274292,
+        "max": 0.8600113987922668,
+        "mean": -0.0031570883002132177,
+        "std": 0.1208236962556839
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.0582712888717651,
+        "max": 1.7203928232192993,
+        "mean": 0.13378123939037323,
+        "std": 0.4687739312648773
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.2.mlp.mlp1_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "min": -0.42165011167526245,
+        "max": 0.44347909092903137,
+        "mean": -0.007466483395546675,
+        "std": 0.06738497316837311
+      },
+      "bias": {
+        "shape": [
+          1536
+        ],
+        "min": -1.791395902633667,
+        "max": 4.798055171966553,
+        "mean": 0.08242997527122498,
+        "std": 0.584866464138031
+      },
+      "weight_values": 589824,
+      "bias_values": 1536
+    },
+    {
+      "name": "block.2.mlp.mlp2_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "min": -1.8220762014389038,
+        "max": 1.8303422927856445,
+        "mean": -0.005769716575741768,
+        "std": 0.25502628087997437
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.4489828050136566,
+        "max": 0.7450780272483826,
+        "mean": 0.05586788058280945,
+        "std": 0.1985294073820114
+      },
+      "weight_values": 589824,
+      "bias_values": 384
+    },
+    {
+      "name": "block.3.attn.q_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.7835163474082947,
+        "max": 0.6349262595176697,
+        "mean": -0.006496189162135124,
+        "std": 0.11005281656980515
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.4603915214538574,
+        "max": 2.8885154724121094,
+        "mean": 0.5766652226448059,
+        "std": 0.7650506496429443
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.3.attn.k_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.7173649072647095,
+        "max": 0.5111137628555298,
+        "mean": -0.005004748702049255,
+        "std": 0.10095976293087006
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -1.7731595039367676,
+        "max": 2.527256965637207,
+        "mean": 0.43558239936828613,
+        "std": 0.7420544028282166
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.3.attn.v_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -0.5554606914520264,
+        "max": 0.5415281057357788,
+        "mean": -0.006257527507841587,
+        "std": 0.09999120235443115
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -2.1102640628814697,
+        "max": 2.5185720920562744,
+        "mean": 0.4751195013523102,
+        "std": 0.7657627463340759
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.3.attn.proj_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "min": -1.0386883020401,
+        "max": 1.4599558115005493,
+        "mean": 0.0012842552969232202,
+        "std": 0.14200323820114136
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.9507054090499878,
+        "max": 1.9227540493011475,
+        "mean": -0.13485786318778992,
+        "std": 0.4546818435192108
+      },
+      "weight_values": 147456,
+      "bias_values": 384
+    },
+    {
+      "name": "block.3.mlp.mlp1_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "min": -0.481609046459198,
+        "max": 0.39490094780921936,
+        "mean": -0.0048529463820159435,
+        "std": 0.046542052179574966
+      },
+      "bias": {
+        "shape": [
+          1536
+        ],
+        "min": -1.8919215202331543,
+        "max": 2.7388949394226074,
+        "mean": -0.2616834044456482,
+        "std": 0.8039639592170715
+      },
+      "weight_values": 589824,
+      "bias_values": 1536
+    },
+    {
+      "name": "block.3.mlp.mlp2_conv",
+      "kind": "conv_or_pointwise_with_batchnorm_folded",
+      "weight": {
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "min": -1.6084773540496826,
+        "max": 1.7650821208953857,
+        "mean": -0.005498290527611971,
+        "std": 0.15771478414535522
+      },
+      "bias": {
+        "shape": [
+          384
+        ],
+        "min": -0.5478436350822449,
+        "max": 0.5452543497085571,
+        "mean": 0.008199252188205719,
+        "std": 0.16430366039276123
+      },
+      "weight_values": 589824,
+      "bias_values": 384
+    },
+    {
+      "name": "head",
+      "kind": "linear_classifier",
+      "weight": {
+        "shape": [
+          10,
+          384
+        ],
+        "min": -0.07668673992156982,
+        "max": 0.08249781280755997,
+        "mean": 5.864634999852569e-07,
+        "std": 0.019062761217355728
+      },
+      "bias": {
+        "shape": [
+          10
+        ],
+        "min": -0.12760645151138306,
+        "max": 0.13969622552394867,
+        "mean": -0.008428603410720825,
+        "std": 0.07833457738161087
+      },
+      "weight_values": 3840,
+      "bias_values": 10
+    }
+  ],
+  "parameter_counts": {
+    "weights": 9281040,
+    "biases": 14938,
+    "total": 9295978,
+    "int8_weight_bytes": 9281040,
+    "int16_weight_bytes": 18562080,
+    "float32_checkpoint_bytes": 37183912
+  },
+  "implementation_note": "The shipped head RTL consumes fixed-point Spikingformer features and the trained classifier weights. The manifest above enumerates every trained backbone tensor that must be implemented by a DDR-backed streaming convolution/attention engine for a full bitstream-resident Spikingformer.",
+  "exported_float_top1_pct": 95.4800009727478,
+  "exported_fixed_top1_pct": 95.50999999046326,
+  "infer_skip_abs_thresh": 2048,
+  "feature_mac_skip_fraction_pct": 57.812368869781494
+}

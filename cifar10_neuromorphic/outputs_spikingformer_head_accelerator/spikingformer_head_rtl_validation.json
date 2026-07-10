@@ -1,0 +1,14 @@
+{
+  "samples": 10000,
+  "accuracy": 0.9551,
+  "correct": 9551,
+  "score_mismatch_count": 0,
+  "score_exact_match": true,
+  "prediction_mismatch_count": 0,
+  "prediction_exact_match": true,
+  "max_abs_score_error": 0,
+  "infer_skip_abs_thresh": 2048,
+  "feature_mac_skip_fraction": 0.5781236979166666,
+  "results_csv": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\cifar10_neuromorphic\\cifar10_spikingformer_head_results.csv",
+  "reference": "recomputed from current RTL .mem files"
+}
