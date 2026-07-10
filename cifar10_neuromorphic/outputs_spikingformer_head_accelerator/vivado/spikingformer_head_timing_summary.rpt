@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
-| Date         : Fri Jul 10 14:17:24 2026
+| Date         : Fri Jul 10 19:38:23 2026
 | Host         : Ross-Laptop running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -file C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/cifar10_neuromorphic/outputs_spikingformer_head_accelerator/vivado/spikingformer_head_timing_summary.rpt
 | Design       : cifar10_spikingformer_head_pynq_axi_stream_top

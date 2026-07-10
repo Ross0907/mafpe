@@ -34,8 +34,11 @@ Verified on July 10, 2026 with Vivado 2026.1 and the PYNQ-Z2/Zynq-7020 part `xc7
 | LUT / FF / LUTRAM LUT | 1043 / 988 / 228 |
 | BRAM36 / DSP48E1 | 6 / 1 |
 | Vectorless Vivado power | 0.123 W total, 0.018 W dynamic, 0.105 W static |
+| XSim-SAIF Vivado power | 0.116 W total, 0.011 W dynamic, 0.105 W static, medium confidence |
 
 The implemented improvement is a fixed-point feature-activity denoising gate with RTL-visible counters and real FSM bypass. A sweep over exported CIFAR-10 Spikingformer features found that `abs(feature) <= 2048` removes 57.81% of feature-MAC opportunities while moving the mapped fixed-point head from 95.48% to 95.51%. The hardware applies the same effective feature to both inference and on-chip classifier learning. Skipped inference features now bypass `ST_MAC_MUL` and `ST_MAC_ACCUM`, and skipped learning features bypass no-op true/pred weight updates. The counters report 22,199,950 skipped inference opportunities plus 5,603 skipped learning features in the full 10,000-image run, so validation is not bypassing the accelerator path.
+
+The power result now includes an activity-annotated path. `run_spikingformer_head_activity_power.ps1` runs full 10,000-sample AXI-wrapper XSim traces for inference and learning, writes SAIF activity files, and annotates the routed Vivado checkpoint. Vivado reports medium confidence for the SAIF estimates: 0.116 W total and 0.011 W dynamic for both the inference and learning-mode validation fixtures. The vectorless report is kept for comparison because it is the default Vivado estimate.
 
 ## Current SOTA Targets
 
@@ -70,7 +73,7 @@ Primary sources:
 3. Accelerator upgrades:
    - Replace the current gated dense scan with a compact active-feature stream, so the implemented cycle skip can also remove feature-index visits and BRAM address checks.
    - Add a top-k active-feature index buffer per frame. This changes classifier work from `classes * feature_dim` to `classes * active_feature_count`.
-   - Add SAIF/VCD-driven Vivado power annotation for inference and learning modes, replacing vectorless power with activity-specific power.
+   - Completed: SAIF-driven Vivado power annotation for inference and learning modes. Next power step is board-level rail measurement on the PYNQ hardware.
    - Add a small PYNQ host driver that streams real feature frames through DMA and checks hardware labels against the CSV reference.
 
 4. On-chip learning upgrades:

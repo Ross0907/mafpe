@@ -1,18 +1,18 @@
 [
   {
     "path": ".gitignore",
-    "bytes": 218,
-    "sha256": "0db890c7639b0f4b47e076ee0d5309d80c4547a9e9c9062d1fcf404b83beb6c2"
+    "bytes": 96,
+    "sha256": "9f1e925ff495a52cff3d6f8182eeff700f9b61bfd90a2850ebe6468df93dc853"
   },
   {
     "path": "artifacts/neuraedge-cifar10-pynq-accelerator.zip",
-    "bytes": 22193998,
-    "sha256": "14cdde742c50f32fa4731841232d6040668fe65176b40942c0ee484f6eabc886"
+    "bytes": 23889276,
+    "sha256": "5282aaf896fdc953c7e42fbc1b0ff88d5269f498c3043a2443eccfc2090d6696"
   },
   {
     "path": "cifar10_neuromorphic/cifar10_spikingformer_head_accelerator.vcd",
     "bytes": 10717652,
-    "sha256": "e960fc37b454161440e9cbabfe780a6744e7ed9904476013b04d7f761822ef7d"
+    "sha256": "be2bcc680a9e984a1fbb3c10b1fdcf3067b1c71a284cf60bf41d54075b05459e"
   },
   {
     "path": "cifar10_neuromorphic/cifar10_spikingformer_head_onchip_learning_bias_after.mem",
@@ -37,7 +37,7 @@
   {
     "path": "cifar10_neuromorphic/cifar10_spikingformer_head_onchip_learning.vcd",
     "bytes": 10718189,
-    "sha256": "0c554b6fd7cbfd5be462ebc1c8f2fc5cc4b6f8ce753d6cda17ebbb175b84c8f5"
+    "sha256": "4a66be151370f05cb56f8a113f246e31774a0ba108586b842cab6b3ebd14ebf9"
   },
   {
     "path": "cifar10_neuromorphic/cifar10_spikingformer_head_results.csv",
@@ -56,28 +56,68 @@
   },
   {
     "path": "cifar10_neuromorphic/generate_spikingformer_debug_reports.py",
-    "bytes": 54263,
-    "sha256": "d27e9558b5aa6709b7a3cba3ad5ef451f7091fb5edde3895a00bafb7e528a3cc"
+    "bytes": 56988,
+    "sha256": "24886bbade148900f2746e29839edac7fce4b1ea6c90199d9ae0e81ccc97200c"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_activity_power_report.pdf",
+    "bytes": 60563,
+    "sha256": "2bcc85885f4037dceb5d4666b584b960e58b4823e952a5b5a19cc1c4ae4b84fe"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_activity_power_summary.json",
+    "bytes": 2027,
+    "sha256": "a3402f810b60da9a184d72abd5ec97297540403a4dc0ee11c617de93e0c005f2"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_activity_power.png",
+    "bytes": 48081,
+    "sha256": "e0c5007829fb68dca32f8059cd493875775661a59d26603cff278b8235971571"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_activity_power.tcl",
+    "bytes": 1666,
+    "sha256": "c12445ed40b5378d5e31b3df82d598f7c2f7f384d7bb36c6a8e2a5f06cfb8618"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_inference.saif",
+    "bytes": 7084970,
+    "sha256": "e277611b4bc6c67499ce0934dcd51fe0980090a8c309631f427c9072b44a2057"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_learning.saif",
+    "bytes": 7137034,
+    "sha256": "c726f140d812c4fc2b90484fa6af8cb15642c6254c6932ac8f94a97b4e6c4a19"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_power_inference_saif.rpt",
+    "bytes": 12942,
+    "sha256": "0a7619f80948e52b621055412b16d8123e5f5297b33a997b12091aa54ee1c6c3"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/activity_power/spikingformer_head_power_learning_saif.rpt",
+    "bytes": 12925,
+    "sha256": "60e8d00eeca18faa74a1036437fa3648f43dc4f46de4fbd5c93b45fbaf761b0a"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/neuraedge_full_accelerator_line_by_line_explainer.pdf",
-    "bytes": 1008624,
-    "sha256": "af698196f4e478fe6905e72688046f3e1ab050937040700045eb0b313914fb49"
+    "bytes": 1148083,
+    "sha256": "3fad1787d9485cb4f67a2c99b21213666f528d997a76da6bb54eae921b1be30f"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/neuraedge_full_accelerator_line_by_line_explainer.tex",
-    "bytes": 1110091,
-    "sha256": "6279155388d7e6df385f9861b8a21138a1f243896107ee8ab06415b04ef743c4"
+    "bytes": 1284805,
+    "sha256": "6129113c96fb559c1ca880475b090b0bb337adbbd98575f6d531aa89782498f6"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/neuraedge_spikingformer_deep_debug_report.pdf",
-    "bytes": 1086519,
-    "sha256": "748c75931276773c2e9a291fcce09b3b06b0742e07eec72e58c0555c7c68d735"
+    "bytes": 1088139,
+    "sha256": "ab6ad2e929e8041b38534cf97cffea19c33535b6e71404b06729fd3a586afd9f"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/plots/00_summary.png",
-    "bytes": 144292,
-    "sha256": "e23f38e0df90ccc548c3d48d24fc94df32965a9d1e223b8119a1373aec621751"
+    "bytes": 157235,
+    "sha256": "3647229f3ae7d5094fec79b024a744b3165101de5edcf9f357efa913626cdbc1"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/plots/01_architecture.png",
@@ -250,6 +290,11 @@
     "sha256": "a9145e41482f45699baf2766a598de20b5f70b349503edc2a8b52d137986781b"
   },
   {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/plots/28b_activity_power.png",
+    "bytes": 45302,
+    "sha256": "c4de064c7926e00370ff8fbb4519c55e28ce000482a0ea290ce5b2b7934ea67c"
+  },
+  {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/deep_debug/plots/29_timing_slack.png",
     "bytes": 29155,
     "sha256": "afbd530c434e790bb165a5daf393b5f79cf4c55c3f81a19ea4fac5b4cee0a172"
@@ -273,6 +318,11 @@
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/spikingformer_head_fixed_confusion.png",
     "bytes": 48221,
     "sha256": "664091c940d8400e9fdcf0065a8bffa1656262a74095d8887043b64cd978b2e2"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/spikingformer_head_fixed_reference.csv",
+    "bytes": 1259498,
+    "sha256": "627ef7f2c7484b8b373c41a3baf95f743a080f7e22c6822faec5b71fa9f18226"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/spikingformer_head_mapping_metrics.json",
@@ -302,7 +352,7 @@
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/spikingformer_head_rtl_validation.pdf",
     "bytes": 113113,
-    "sha256": "0575befdeb9991af7dbce6ba6704579b270b2d79c347e6fe67618b298a0f6f7b"
+    "sha256": "2a909b492f07361883c49d2999e1a9ec8719ee9c053013336b4433990544f323"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/spikingformer_weight_inventory.png",
@@ -312,12 +362,12 @@
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/vivado/spikingformer_head_power.rpt",
     "bytes": 10071,
-    "sha256": "6a2c55f904ac612d4d7050c63eb225f8a1ad1771ce6ef5c10b2942cec5b0b536"
+    "sha256": "b1c48c54bfba1c1b0cc662233c472c3f2346986a1bb56b3fe5101629bc9f289a"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/vivado/spikingformer_head_routed.dcp",
-    "bytes": 1099685,
-    "sha256": "0e5a567bf64c5b96f6af09cc47e32e92e94a9744b66100f305fdbaf0b34282df"
+    "bytes": 1103071,
+    "sha256": "d857026d460917bfad0473dd13294ea7ee68092ad49044e2d12ed4b842b18eb1"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/vivado/spikingformer_head_synth_summary.txt",
@@ -327,12 +377,37 @@
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/vivado/spikingformer_head_timing_summary.rpt",
     "bytes": 21093,
-    "sha256": "85dc98b2ee6d5da88c0db12f86899c68c8d75915d3f3abcca23fabe5aca43b6b"
+    "sha256": "9877f9fc7950cd261aeb446f092b75400aea3c07007423a7540221669a763e08"
   },
   {
     "path": "cifar10_neuromorphic/outputs_spikingformer_head_accelerator/vivado/spikingformer_head_utilization.rpt",
     "bytes": 11677,
-    "sha256": "3908620bb79899df250dbbedb04969084c22c500608203028c731ace0b7f8ac8"
+    "sha256": "9e81659789767b252f30ff195c735e500ca34fa94d24de665bb804f0992f5ad5"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_upstream_spikingformer/spikingformer_4_384_400e/args.yaml",
+    "bytes": 2504,
+    "sha256": "222dccff1915f86671a0657204ee7cc71aec2d0c56287686c77c62f94b8d410a"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_upstream_spikingformer/spikingformer_4_384_400e/summary.csv",
+    "bytes": 20176,
+    "sha256": "09373761e4c58cab00f0f873e1a1398daeaed24db9afb5c94278f06a066d5c3d"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_upstream_spikingformer/spikingformer_4_384_400e/upstream_spikingformer_accuracy.png",
+    "bytes": 65748,
+    "sha256": "14c27ece9ca4b011e6d166154f7b25433dc70ef3d05772670fb1f3439a1bee93"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_upstream_spikingformer/spikingformer_4_384_400e/upstream_spikingformer_loss.png",
+    "bytes": 68412,
+    "sha256": "16d8ea94c37baff016b7c764816bde276b8770ec33454b935c5616df3c5ca573"
+  },
+  {
+    "path": "cifar10_neuromorphic/outputs_upstream_spikingformer/spikingformer_4_384_400e/upstream_spikingformer_report.pdf",
+    "bytes": 99224,
+    "sha256": "52b9375cf4d6df310a834c452eeace0ec364bbcbae3e8d85245d04168d1fb651"
   },
   {
     "path": "cifar10_neuromorphic/pause_upstream_spikingformer.ps1",
@@ -341,8 +416,8 @@
   },
   {
     "path": "cifar10_neuromorphic/README.md",
-    "bytes": 4743,
-    "sha256": "c5e015201f90b79dfb3f400ca5215138c83f682297fe4c7af90db4dc61868891"
+    "bytes": 5253,
+    "sha256": "ca0a2259527935736317eb4df0a430c0c11f48a43c5b22be041b198e75d84387"
   },
   {
     "path": "cifar10_neuromorphic/resume_upstream_spikingformer.ps1",
@@ -475,6 +550,11 @@
     "sha256": "98cc0b13cb22bc4773cb5df00f509a8e7a7ad51a200059699bdaed343dd0c5a6"
   },
   {
+    "path": "cifar10_neuromorphic/rtl/tb_cifar10_spikingformer_head_axi_activity.sv",
+    "bytes": 5897,
+    "sha256": "9a9095b51cfaf0e054d708a6cd9387d00f098b7db63068adb3039a1f1833ad49"
+  },
+  {
     "path": "cifar10_neuromorphic/rtl/tb_cifar10_spikingformer_head_onchip_learning.sv",
     "bytes": 9424,
     "sha256": "38b7b2633a41d61cc15c1c59888b4bd38e9d5f41c49ffcfb9caeee02f6b9def6"
@@ -505,6 +585,11 @@
     "sha256": "8d7fca688fb1a4b46786b181ece18c7716daab12732e74a1417b47e3d62cfc27"
   },
   {
+    "path": "cifar10_neuromorphic/run_spikingformer_head_activity_power.ps1",
+    "bytes": 6490,
+    "sha256": "8a6644b14e48e4da577d8a7df0a2dd1aab3a60482e913e1ef62181a101e80a0b"
+  },
+  {
     "path": "cifar10_neuromorphic/run_upstream_spikingformer_full.ps1",
     "bytes": 5247,
     "sha256": "dba0c6b66be7abb2fec0f96feaca2325a92fb05fecadb939c8256cc1f972d238"
@@ -525,6 +610,11 @@
     "sha256": "e0fe44b0ddc840be9dd444d24beb94b184dd36513c306f8dbf60eb1a02c9b56a"
   },
   {
+    "path": "cifar10_neuromorphic/summarize_spikingformer_head_activity_power.py",
+    "bytes": 5514,
+    "sha256": "1c0d4b321d8c33ca2ec21ca4076436192b3ec8fd5f7577fd9451bd6b8efefc68"
+  },
+  {
     "path": "cifar10_neuromorphic/train_spikingformer_cifar10.py",
     "bytes": 35870,
     "sha256": "57e7e9499ebe03d99d6eb900252464cd3b2ae748fc870a4709d1f3ff1b3a152c"
@@ -541,13 +631,18 @@
   },
   {
     "path": "docs/neuraedge_sota_improvement_strategy.md",
-    "bytes": 6010,
-    "sha256": "4c5db208ec96cb33e22f78a65c8e242be6f364904f532c74129f9385326a47c2"
+    "bytes": 6613,
+    "sha256": "ce8190b02e50427fd0a5bd5602a614b695486539a213cbb00290acc20e280f48"
+  },
+  {
+    "path": "docs/neuraedge_workspace_readme.md",
+    "bytes": 18227,
+    "sha256": "4fedfe2314adebd826d7626f4c9dc66321bcd5381f8f3b57b5941a852dfb3911"
   },
   {
     "path": "PRIVATE_RELEASE_README.md",
-    "bytes": 1751,
-    "sha256": "ded32c1e479e60406b70ce8e5b488eadd3c4bd05055be9937d64df3dcba4f93d"
+    "bytes": 2194,
+    "sha256": "d3589875f68788cb6cca1515d333852c2684bb54e17df19ac1fcb89496a4c882"
   },
   {
     "path": "PRIVATE_REPO_POLICY.md",
@@ -556,12 +651,42 @@
   },
   {
     "path": "README.md",
-    "bytes": 1751,
-    "sha256": "ded32c1e479e60406b70ce8e5b488eadd3c4bd05055be9937d64df3dcba4f93d"
+    "bytes": 2194,
+    "sha256": "d3589875f68788cb6cca1515d333852c2684bb54e17df19ac1fcb89496a4c882"
+  },
+  {
+    "path": "RELEASE_MANIFEST.csv",
+    "bytes": 21164,
+    "sha256": "20f1df29d878a9abae2f6bf578189407f59b66cb37cdf6267351334e981d17fe"
+  },
+  {
+    "path": "RELEASE_MANIFEST.json",
+    "bytes": 28112,
+    "sha256": "5bace0448b907453caceb99ffb86ad82c4dd71b160cd32438b5e2d836d9e6c4d"
+  },
+  {
+    "path": "RELEASE_SUMMARY.json",
+    "bytes": 1182,
+    "sha256": "fb43ab5bbe63589f8e5d661ae7c860c32d1e4de8764de6bccb41210d14d9aa60"
+  },
+  {
+    "path": "requirements_export.txt",
+    "bytes": 52,
+    "sha256": "e32f9d782e1af514bf6f41ddbaba713c30f9c2a24a36af40b7c9b3ccb7bc5720"
+  },
+  {
+    "path": "requirements_runtime.txt",
+    "bytes": 16,
+    "sha256": "62e671fd954cfb9a814e519c673490fea8e6497a5dad4bb8673330ef1fdf1fff"
   },
   {
     "path": "run_neuraedge_private_full.ps1",
-    "bytes": 2425,
-    "sha256": "f7d69b9273e2298057d2b1438c6bbb6d7c89b9960c497e75f2d085007d38a85b"
+    "bytes": 3442,
+    "sha256": "dca85a8c67209a27ed46bcfabfd96a798f660c9568fc3ab47162d6c5bb50e277"
+  },
+  {
+    "path": "setup_neuraedge_python.ps1",
+    "bytes": 647,
+    "sha256": "385d8a56a69f561f49fed1fda5f3b3dd4fac0054eb53b2bd53849276b03824bc"
   }
 ]

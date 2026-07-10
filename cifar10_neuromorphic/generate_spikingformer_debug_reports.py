@@ -268,6 +268,7 @@ def generate_debug_pdf() -> None:
     learn_val = read_json(odir / "spikingformer_head_onchip_learning_validation.json")
     mapping = read_json(odir / "spikingformer_head_mapping_metrics.json")
     vivado = parse_vivado_reports(odir / "vivado")
+    activity_power = read_json(odir / "activity_power" / "spikingformer_head_activity_power_summary.json")
     infer_skip_abs_thresh = int(rtl_val.get("infer_skip_abs_thresh", mapping.get("infer_skip_abs_thresh", 0)) or 0)
     feature_mac_skip_fraction = float(rtl_val.get("feature_mac_skip_fraction", mapping.get("feature_mac_skip_fraction", 0.0)) or 0.0)
     rtl_infer_skip_count = int(inference_rows[-1].get("infer_skip_count", 0)) if inference_rows else 0
@@ -307,6 +308,7 @@ def generate_debug_pdf() -> None:
             f"Timing: WNS={vivado['wns_ns']:.3f} ns  WHS={vivado['whs_ns']:.3f} ns  timing_met={'timing_met=1' in vivado['summary']}",
             f"Utilization: LUT={vivado['lut']}  FF={vivado['regs']}  BRAM36={vivado['bram']}  DSP={vivado['dsp']}  LUTRAM={vivado['lut_mem']}",
             f"Power: total={vivado['total_power_w']:.3f} W  dynamic={vivado['dynamic_power_w']:.3f} W  static={vivado['static_power_w']:.3f} W",
+            f"SAIF power: inference dynamic={activity_power.get('inference_saif', {}).get('dynamic_w', float('nan')):.3f} W; learning dynamic={activity_power.get('learning_saif', {}).get('dynamic_w', float('nan')):.3f} W; confidence={activity_power.get('inference_saif', {}).get('confidence', 'missing')}",
             f"Mapping metrics file fields: {', '.join(sorted(mapping.keys())[:10])}",
             "Important interpretation: the RTL accelerates the trained Spikingformer feature-head path, gates low-magnitude feature activity, and implements a margin-gated on-chip classifier update.",
         ]
@@ -597,6 +599,31 @@ def generate_debug_pdf() -> None:
         ax.set_title("Vivado Dynamic Power Breakdown")
         save_pdf_page(pdf, fig, png_dir, "28_power_pie")
 
+        if activity_power:
+            labels_power = ["vectorless", "inference SAIF", "learning SAIF"]
+            dynamic_power = [
+                float(activity_power.get("vectorless", {}).get("dynamic_w", vivado["dynamic_power_w"]) or 0.0),
+                float(activity_power.get("inference_saif", {}).get("dynamic_w", 0.0) or 0.0),
+                float(activity_power.get("learning_saif", {}).get("dynamic_w", 0.0) or 0.0),
+            ]
+            total_power = [
+                float(activity_power.get("vectorless", {}).get("total_on_chip_w", vivado["total_power_w"]) or 0.0),
+                float(activity_power.get("inference_saif", {}).get("total_on_chip_w", 0.0) or 0.0),
+                float(activity_power.get("learning_saif", {}).get("total_on_chip_w", 0.0) or 0.0),
+            ]
+            fig, ax = plt.subplots(figsize=(9, 5))
+            x = np.arange(len(labels_power))
+            width = 0.35
+            ax.bar(x - width / 2, total_power, width, label="total")
+            ax.bar(x + width / 2, dynamic_power, width, label="dynamic")
+            ax.set_xticks(x)
+            ax.set_xticklabels(labels_power)
+            ax.set_ylabel("Vivado power (W)")
+            ax.set_title("Vectorless Power vs XSim SAIF-Annotated Power")
+            ax.grid(axis="y", alpha=0.25)
+            ax.legend()
+            save_pdf_page(pdf, fig, png_dir, "28b_activity_power")
+
         fig, ax = plt.subplots(figsize=(9, 5))
         ax.bar(["WNS", "WHS"], [vivado["wns_ns"], vivado["whs_ns"]])
         ax.axhline(0, color="black", linewidth=0.8)
@@ -771,6 +798,7 @@ def generate_explainer_tex() -> Path:
     learn_val = read_json(odir / "spikingformer_head_onchip_learning_validation.json")
     mapping = read_json(odir / "spikingformer_head_mapping_metrics.json")
     vivado = parse_vivado_reports(odir / "vivado")
+    activity_power = read_json(odir / "activity_power" / "spikingformer_head_activity_power_summary.json")
     acc_pct = float(rtl_val.get("accuracy", float("nan"))) * 100.0
     sample_count = int(rtl_val.get("samples", 0) or 0)
     update_count = int(learn_val.get("updates", 0) or 0)
@@ -782,11 +810,14 @@ def generate_explainer_tex() -> Path:
         pdir / "rtl" / "tb_spikingformer_head_learning_unit.sv",
         pdir / "rtl" / "tb_cifar10_spikingformer_head_accelerator.sv",
         pdir / "rtl" / "tb_cifar10_spikingformer_head_onchip_learning.sv",
+        pdir / "rtl" / "tb_cifar10_spikingformer_head_axi_activity.sv",
         pdir / "export_spikingformer_head_accelerator.py",
         pdir / "validate_spikingformer_head_rtl.py",
         pdir / "validate_spikingformer_head_onchip_learning.py",
         pdir / "generate_spikingformer_debug_reports.py",
+        pdir / "summarize_spikingformer_head_activity_power.py",
         pdir / "run_spikingformer_head_accelerator.ps1",
+        pdir / "run_spikingformer_head_activity_power.ps1",
         pdir / "spikingformer_head_synth.tcl",
     ]
     tex_path = ddir / "neuraedge_full_accelerator_line_by_line_explainer.tex"
@@ -815,6 +846,7 @@ def generate_explainer_tex() -> Path:
             rf"\item Vivado implementation target: PYNQ Zynq-7020, xc7z020clg400-1, 100 MHz. Routed timing met with WNS {vivado['wns_ns']:.3f} ns and WHS {vivado['whs_ns']:.3f} ns.",
             rf"\item Resource result: {vivado['lut']} LUTs, {vivado['regs']} FFs, {vivado['bram']} RAMB36E1 blocks, and {vivado['dsp']} DSP48E1.",
             rf"\item Vectorless Vivado power: {vivado['total_power_w']:.3f} W total, {vivado['dynamic_power_w']:.3f} W dynamic, {vivado['static_power_w']:.3f} W static.",
+            rf"\item XSim-SAIF annotated Vivado power: inference {float(activity_power.get('inference_saif', {}).get('total_on_chip_w', float('nan'))):.3f} W total / {float(activity_power.get('inference_saif', {}).get('dynamic_w', float('nan'))):.3f} W dynamic; learning {float(activity_power.get('learning_saif', {}).get('total_on_chip_w', float('nan'))):.3f} W total / {float(activity_power.get('learning_saif', {}).get('dynamic_w', float('nan'))):.3f} W dynamic. Vivado reports medium confidence because SAIF annotates the wrapper/core activity while remaining unmatched nets use probabilistic propagation.",
             r"\end{itemize}",
             r"\section{Research Context And Comparison}",
             rf"The model side follows the Spikingformer family of spike-driven transformer SNNs, whose reported CIFAR-10 accuracy is about 95.81--95.95\% in the cited paper/repository. The local fixed-point exported checkpoint reaches {acc_pct:.2f}\% after mapping into this routed hardware head with the measured feature gate. Recent SNN-transformer targets to beat include Max-Former at 97.04\% on CIFAR-10 and alpha-XNOR spiking self-attention at 96.15\% for the reported multi-stage ViT setting. The implemented hardware contribution here is the verified FPGA path: local feature and weight memories, exact fixed-point RTL/golden agreement, activity-gated feature silence, and on-chip classifier learning.",

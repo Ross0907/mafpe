@@ -78,7 +78,8 @@ top:         cifar10_spikingformer_head_pynq_axi_stream_top
 part:        xc7z020clg400-1
 clock:       10 ns / 100 MHz, timing met, routed WNS +0.336 ns, WHS +0.100 ns
 resources:   1043 LUTs, 988 FFs, 228 LUTRAM LUTs, 6 RAMB36E1, 1 DSP48E1
-power:       0.123 W total, 0.018 W dynamic, 0.105 W static
+power:       0.123 W total, 0.018 W dynamic, 0.105 W static vectorless
+saif power:  0.116 W total, 0.011 W dynamic, 0.105 W static for both inference and learning wrapper traces, Vivado medium confidence
 ```
 
 Outputs:
@@ -98,6 +99,14 @@ Deep documentation and debug plots:
 ```powershell
 .\external_research\spikingformer_py310\Scripts\python.exe .\cifar10_neuromorphic\generate_spikingformer_debug_reports.py
 ```
+
+Activity-annotated power:
+
+```powershell
+.\cifar10_neuromorphic\run_spikingformer_head_activity_power.ps1
+```
+
+This compiles the AXI-stream wrapper activity testbench, generates full 10,000-sample inference and learning SAIF files from XSim, annotates the routed PYNQ checkpoint with `read_saif`, and writes `outputs_spikingformer_head_accelerator\activity_power`.
 
 Generated reports:
 

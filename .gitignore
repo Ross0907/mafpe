@@ -1,18 +1,11 @@
-# Ignore regenerated local/runtime files
-external_research/
-datasets/
-venv/
 .venv/
-__pycache__/
-*.pyc
+external_research/
+data/
 *.jou
-*.log
-*.pb
+*.str
 *.wdb
+*.pb
+*.backup.jou
+*.backup.log
 .Xil/
 xsim.dir/
-outputs_upstream_spikingformer/
-outputs_spikingformer/
-*.pth
-*.pth.tar
-*.pt
