@@ -1,5 +1,6 @@
 "path","bytes","sha256"
 ".gitignore","218","0db890c7639b0f4b47e076ee0d5309d80c4547a9e9c9062d1fcf404b83beb6c2"
+"artifacts/neuraedge-cifar10-pynq-accelerator.zip","22193998","14cdde742c50f32fa4731841232d6040668fe65176b40942c0ee484f6eabc886"
 "cifar10_neuromorphic/cifar10_spikingformer_head_accelerator.vcd","10717652","e960fc37b454161440e9cbabfe780a6744e7ed9904476013b04d7f761822ef7d"
 "cifar10_neuromorphic/cifar10_spikingformer_head_onchip_learning_bias_after.mem","107","28bd208ecc0bf53d95a7e65ca68fcc32f4bbc9413fef5a406cf9c467eb6e8ce6"
 "cifar10_neuromorphic/cifar10_spikingformer_head_onchip_learning_results.csv","1508422","7045d494cc6b8be42e939410ead52bc917235a2eaab8ef7b0953719b54c0e875"

@@ -5,6 +5,11 @@
     "sha256": "0db890c7639b0f4b47e076ee0d5309d80c4547a9e9c9062d1fcf404b83beb6c2"
   },
   {
+    "path": "artifacts/neuraedge-cifar10-pynq-accelerator.zip",
+    "bytes": 22193998,
+    "sha256": "14cdde742c50f32fa4731841232d6040668fe65176b40942c0ee484f6eabc886"
+  },
+  {
     "path": "cifar10_neuromorphic/cifar10_spikingformer_head_accelerator.vcd",
     "bytes": 10717652,
     "sha256": "e960fc37b454161440e9cbabfe780a6744e7ed9904476013b04d7f761822ef7d"
