@@ -1,0 +1,632 @@
+{
+  "checkpoint": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\cifar10_neuromorphic\\outputs_upstream_spikingformer\\spikingformer_4_384_400e\\model_best.pth.tar",
+  "architecture": "vitsnn",
+  "checkpoint_epoch": 366,
+  "checkpoint_recorded_metric_percent": 95.48,
+  "dataset": "CIFAR-10 official test split",
+  "samples": 10000,
+  "correct": 9542,
+  "top1_accuracy_percent": 95.42,
+  "batch_size": 32,
+  "device": "cuda",
+  "elapsed_seconds": 53.8178373999981,
+  "images_per_second": 185.8119999448427,
+  "normalization_mean": [
+    0.4914,
+    0.4822,
+    0.4465
+  ],
+  "normalization_std": [
+    0.247,
+    0.2435,
+    0.2616
+  ],
+  "class_accuracy_percent": {
+    "airplane": 96.89999999999999,
+    "automobile": 98.2,
+    "bird": 94.5,
+    "cat": 87.4,
+    "deer": 96.1,
+    "dog": 92.0,
+    "frog": 97.89999999999999,
+    "horse": 96.7,
+    "ship": 97.7,
+    "truck": 96.8
+  },
+  "confusion_matrix_rows_true_columns_predicted": [
+    [
+      969,
+      0,
+      12,
+      2,
+      1,
+      0,
+      0,
+      2,
+      10,
+      4
+    ],
+    [
+      1,
+      982,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      15
+    ],
+    [
+      7,
+      0,
+      945,
+      12,
+      15,
+      4,
+      12,
+      5,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      8,
+      874,
+      18,
+      79,
+      9,
+      4,
+      2,
+      3
+    ],
+    [
+      1,
+      0,
+      6,
+      11,
+      961,
+      7,
+      6,
+      8,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      8,
+      54,
+      9,
+      920,
+      1,
+      4,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      7,
+      10,
+      0,
+      0,
+      979,
+      0,
+      1,
+      0
+    ],
+    [
+      2,
+      0,
+      4,
+      4,
+      11,
+      11,
+      1,
+      967,
+      0,
+      0
+    ],
+    [
+      11,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      977,
+      5
+    ],
+    [
+      5,
+      18,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      6,
+      968
+    ]
+  ],
+  "activation_statistics": {},
+  "hardware_emulation": {
+    "fractional_bits": 10,
+    "fixed_point_scale": 1024,
+    "input_scale": 0.01614102896522073,
+    "input_zero_point": 123,
+    "head_activation_scale": 0.125,
+    "head_accumulator_scale": 8.119863465311021e-05,
+    "weight_granularity": "tensor",
+    "quantized_weights": [
+      {
+        "module": "patch_embed.block0_conv",
+        "shape": [
+          48,
+          3,
+          3,
+          3
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 124,
+        "scale_minimum": 0.0013777334243059158,
+        "scale_maximum": 0.0013777334243059158,
+        "mean_absolute_error": 0.0003395882959011942,
+        "maximum_absolute_error": 0.0006885137408971786
+      },
+      {
+        "module": "patch_embed.block1_conv",
+        "shape": [
+          96,
+          48,
+          3,
+          3
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 104,
+        "scale_minimum": 0.0022282125428318977,
+        "scale_maximum": 0.0022282125428318977,
+        "mean_absolute_error": 0.0005547115579247475,
+        "maximum_absolute_error": 0.0011140834540128708
+      },
+      {
+        "module": "patch_embed.block2_conv",
+        "shape": [
+          192,
+          96,
+          3,
+          3
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 65,
+        "scale_minimum": 0.0031096176244318485,
+        "scale_maximum": 0.0031096176244318485,
+        "mean_absolute_error": 0.0007777694263495505,
+        "maximum_absolute_error": 0.0015548067167401314
+      },
+      {
+        "module": "patch_embed.block3_conv",
+        "shape": [
+          384,
+          192,
+          3,
+          3
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -71,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0031972574070096016,
+        "scale_maximum": 0.0031972574070096016,
+        "mean_absolute_error": 0.0007994086481630802,
+        "maximum_absolute_error": 0.001598628587089479
+      },
+      {
+        "module": "patch_embed.block4_conv",
+        "shape": [
+          384,
+          384,
+          3,
+          3
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -104,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0026720960158854723,
+        "scale_maximum": 0.0026720960158854723,
+        "mean_absolute_error": 0.000667125335894525,
+        "maximum_absolute_error": 0.0013360446318984032
+      },
+      {
+        "module": "block.0.attn.q_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -103,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0022825710475444794,
+        "scale_maximum": 0.0022825710475444794,
+        "mean_absolute_error": 0.0005696468288078904,
+        "maximum_absolute_error": 0.0011412836611270905
+      },
+      {
+        "module": "block.0.attn.k_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 107,
+        "scale_minimum": 0.002029480878263712,
+        "scale_maximum": 0.002029480878263712,
+        "mean_absolute_error": 0.000508572265971452,
+        "maximum_absolute_error": 0.0010147355496883392
+      },
+      {
+        "module": "block.0.attn.v_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 116,
+        "scale_minimum": 0.0014193220995366573,
+        "scale_maximum": 0.0014193220995366573,
+        "mean_absolute_error": 0.0003546006337273866,
+        "maximum_absolute_error": 0.0007096603512763977
+      },
+      {
+        "module": "block.0.attn.proj_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 91,
+        "scale_minimum": 0.0034474385902285576,
+        "scale_maximum": 0.0034474385902285576,
+        "mean_absolute_error": 0.0008634150726720691,
+        "maximum_absolute_error": 0.00172371044754982
+      },
+      {
+        "module": "block.0.mlp.mlp1_conv",
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 96,
+        "scale_minimum": 0.0018049374921247363,
+        "scale_maximum": 0.0018049374921247363,
+        "mean_absolute_error": 0.0004510794242378324,
+        "maximum_absolute_error": 0.000902470201253891
+      },
+      {
+        "module": "block.0.mlp.mlp2_conv",
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 116,
+        "scale_minimum": 0.001736651873216033,
+        "scale_maximum": 0.001736651873216033,
+        "mean_absolute_error": 0.00043429425568319857,
+        "maximum_absolute_error": 0.0008683204650878906
+      },
+      {
+        "module": "block.1.attn.q_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -119,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0014488091692328453,
+        "scale_maximum": 0.0014488091692328453,
+        "mean_absolute_error": 0.0003624597447924316,
+        "maximum_absolute_error": 0.0007244013249874115
+      },
+      {
+        "module": "block.1.attn.k_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -115,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0014182471204549074,
+        "scale_maximum": 0.0014182471204549074,
+        "mean_absolute_error": 0.0003541378246154636,
+        "maximum_absolute_error": 0.0007091127336025238
+      },
+      {
+        "module": "block.1.attn.v_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 119,
+        "scale_minimum": 0.0012980310712009668,
+        "scale_maximum": 0.0012980310712009668,
+        "mean_absolute_error": 0.000324715074384585,
+        "maximum_absolute_error": 0.0006490163505077362
+      },
+      {
+        "module": "block.1.attn.proj_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -102,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0018973757978528738,
+        "scale_maximum": 0.0018973757978528738,
+        "mean_absolute_error": 0.0004734740941785276,
+        "maximum_absolute_error": 0.000948682427406311
+      },
+      {
+        "module": "block.1.mlp.mlp1_conv",
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 97,
+        "scale_minimum": 0.002114043105393648,
+        "scale_maximum": 0.002114043105393648,
+        "mean_absolute_error": 0.0005285536171868443,
+        "maximum_absolute_error": 0.0010570213198661804
+      },
+      {
+        "module": "block.1.mlp.mlp2_conv",
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 94,
+        "scale_minimum": 0.0020444889087229967,
+        "scale_maximum": 0.0020444889087229967,
+        "mean_absolute_error": 0.0005108311888761818,
+        "maximum_absolute_error": 0.001022249460220337
+      },
+      {
+        "module": "block.2.attn.q_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 121,
+        "scale_minimum": 0.001464281347580254,
+        "scale_maximum": 0.001464281347580254,
+        "mean_absolute_error": 0.0003661935043055564,
+        "maximum_absolute_error": 0.0007321406155824661
+      },
+      {
+        "module": "block.2.attn.k_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 113,
+        "scale_minimum": 0.001605781028047204,
+        "scale_maximum": 0.001605781028047204,
+        "mean_absolute_error": 0.00040134735172614455,
+        "maximum_absolute_error": 0.0008028843440115452
+      },
+      {
+        "module": "block.2.attn.v_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 106,
+        "scale_minimum": 0.0015038890996947885,
+        "scale_maximum": 0.0015038890996947885,
+        "mean_absolute_error": 0.0003765551664400846,
+        "maximum_absolute_error": 0.0007519349455833435
+      },
+      {
+        "module": "block.2.attn.proj_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 103,
+        "scale_minimum": 0.0017635764088481665,
+        "scale_maximum": 0.0017635764088481665,
+        "mean_absolute_error": 0.00044080434599891305,
+        "maximum_absolute_error": 0.0008817873895168304
+      },
+      {
+        "module": "block.2.mlp.mlp1_conv",
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 77,
+        "scale_minimum": 0.002409031381830573,
+        "scale_maximum": 0.002409031381830573,
+        "mean_absolute_error": 0.0006020439905114472,
+        "maximum_absolute_error": 0.0012045130133628845
+      },
+      {
+        "module": "block.2.mlp.mlp2_conv",
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 123,
+        "scale_minimum": 0.00169853656552732,
+        "scale_maximum": 0.00169853656552732,
+        "mean_absolute_error": 0.0004245176969561726,
+        "maximum_absolute_error": 0.0008492679335176945
+      },
+      {
+        "module": "block.3.attn.q_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 111,
+        "scale_minimum": 0.0015896152472123504,
+        "scale_maximum": 0.0015896152472123504,
+        "mean_absolute_error": 0.0003965423384215683,
+        "maximum_absolute_error": 0.0007948055863380432
+      },
+      {
+        "module": "block.3.attn.k_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 107,
+        "scale_minimum": 0.0016840698663145304,
+        "scale_maximum": 0.0016840698663145304,
+        "mean_absolute_error": 0.00042186983046121895,
+        "maximum_absolute_error": 0.0008420348167419434
+      },
+      {
+        "module": "block.3.attn.v_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 101,
+        "scale_minimum": 0.0017021881649270654,
+        "scale_maximum": 0.0017021881649270654,
+        "mean_absolute_error": 0.0004261791764292866,
+        "maximum_absolute_error": 0.0008510909974575043
+      },
+      {
+        "module": "block.3.attn.proj_conv",
+        "shape": [
+          384,
+          384,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -117,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0020497299265116453,
+        "scale_maximum": 0.0020497299265116453,
+        "mean_absolute_error": 0.0005102992872707546,
+        "maximum_absolute_error": 0.0010248564649373293
+      },
+      {
+        "module": "block.3.mlp.mlp1_conv",
+        "shape": [
+          1536,
+          384,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -127,
+        "integer_maximum": 105,
+        "scale_minimum": 0.0019479969050735235,
+        "scale_maximum": 0.0019479969050735235,
+        "mean_absolute_error": 0.00048739826888777316,
+        "maximum_absolute_error": 0.000973997637629509
+      },
+      {
+        "module": "block.3.mlp.mlp2_conv",
+        "shape": [
+          384,
+          1536,
+          1,
+          1
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -124,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0019215308129787445,
+        "scale_maximum": 0.0019215308129787445,
+        "mean_absolute_error": 0.00047884281957522035,
+        "maximum_absolute_error": 0.0009607654064893723
+      },
+      {
+        "module": "head",
+        "shape": [
+          10,
+          384
+        ],
+        "granularity": "tensor",
+        "integer_minimum": -118,
+        "integer_maximum": 127,
+        "scale_minimum": 0.0006495890556834638,
+        "scale_maximum": 0.0006495890556834638,
+        "mean_absolute_error": 0.00016229174798354506,
+        "maximum_absolute_error": 0.00032467953860759735
+      }
+    ]
+  }
+}

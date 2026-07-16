@@ -1,0 +1,2 @@
+tb_neuraedge_universal_core PASSED commands=15 input_beats=88 output_beats=61
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_universal_core.sv:503: $finish called at 8420000 (1ps)

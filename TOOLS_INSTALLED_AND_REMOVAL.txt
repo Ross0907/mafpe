@@ -1,0 +1,234 @@
+NEURAEDGE TOOL AND RESEARCH INSTALLATION LEDGER
+================================================
+
+Inventory date: 2026-07-16 (Asia/Calcutta)
+Workspace: C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main
+
+Purpose
+-------
+This plain-text ledger records project-relevant tools that were already present
+when the universal-accelerator work began, tools added during that work, where
+they live, whether they create a service/startup process, and how to remove
+them. It is intentionally kept at the repository root so it opens directly in
+Notepad.
+
+PRE-EXISTING SYSTEM TOOLS (NOT INSTALLED BY THIS WORK)
+------------------------------------------------------
+
+1. AMD Vivado Design Suite 2026.1
+   Detected version: v2026.1, build 6511674
+   Install path: D:\AMDDesignTools\2026.1
+   Executable: D:\AMDDesignTools\2026.1\Vivado\bin\vivado.bat
+   Registry uninstaller:
+     D:\AMDDesignTools\.xinstall\2026.1\xuninstall.exe --filterPackage "VivadoMLEnterpriseEdition"
+   Project use: XSim, synthesis, implementation, timing, utilization, DCP,
+   waveform, and SAIF-annotated power analysis.
+
+2. MATLAB R2026a Update 3
+   Detected version: 26.1.0.3276743
+   Install path: C:\Program Files\MATLAB\R2026a
+   Executable: C:\Program Files\MATLAB\R2026a\bin\matlab.exe
+   Uninstaller:
+     C:\Program Files\MATLAB\R2026a\bin\win64\MathWorksProductUninstaller.exe C:\Program Files\MATLAB\R2026a
+   Project use: optional independent plotting and numerical inspection.
+
+3. Python 3.10.11 (64-bit)
+   Install path: C:\Users\Ross\AppData\Local\Programs\Python\Python310
+   Executable: C:\Users\Ross\AppData\Local\Programs\Python\Python310\python.exe
+   Removal: Windows Settings > Apps > Installed apps > Python 3.10.11.
+   Project use: scripts and environment creation.
+
+3a. Python 3.14.6 (64-bit, pre-existing system installation)
+    Install path: C:\Users\Ross\AppData\Local\Python\pythoncore-3.14-64
+    Executable through launcher: py -3.14
+    Detected packages used by the final report generator:
+      numpy 2.5.0
+      matplotlib 3.11.0
+      Pillow 12.3.0
+    Removal: Windows Settings > Apps > Installed apps > Python 3.14, or use
+    the Python install manager that created pythoncore-3.14-64.
+    Project use: deterministic PNG and multipage-PDF debug plots. This Python
+    installation was already present; no package was installed in this pass.
+    Startup/service impact: none.
+
+4. Project-local Spikingformer Python environment
+   Install path: external_research\spikingformer_py310
+   Python: 3.10.11
+   Important detected packages:
+     torch 1.12.1+cu116
+     torchvision 0.13.1+cu116
+     spikingjelly 0.0.0.0.12
+     timm 0.6.12
+     numpy 1.25.2
+     scipy 1.15.3
+     pandas 2.3.3
+     matplotlib 3.10.9
+     PyYAML 6.0.3
+     Pillow 12.3.0
+     tqdm 4.68.4
+   Removal: delete only the workspace-local directory
+     external_research\spikingformer_py310
+   Startup/service impact: none.
+
+5. Microsoft PowerShell
+   Detected version: 7.6.3
+   Executable: pwsh.exe on PATH
+   Removal: Windows Settings > Apps > Installed apps > PowerShell.
+
+6. Git for Windows
+   Detected version: 2.55.0.windows.2
+   Install path: C:\Program Files\Git
+   Uninstaller: C:\Program Files\Git\unins000.exe
+
+7. MiKTeX / pdfLaTeX
+   Detected MiKTeX entry: 25.12
+   Detected pdfTeX: MiKTeX-pdfTeX 4.27 (MiKTeX 26.5)
+   Install path: C:\Users\Ross\AppData\Local\Programs\MiKTeX
+   Cleanup/uninstaller:
+     C:\Users\Ross\AppData\Local\Programs\MiKTeX\miktex\bin\x64\miktex-console.exe --start-page cleanup
+   Project use: compiling the LaTeX explainers and debug reports. The bundled
+   pdftoppm.exe was also used for visual QA of selected final PDF pages.
+
+8. MSYS2 UCRT64
+   Detected version: 20260611
+   Install path: C:\msys64
+   Uninstaller: C:\msys64\uninstall.exe --start-uninstaller
+   Startup/service impact: none detected; MSYS2 tools run only when invoked.
+
+9. GTKWave
+   Detected version: 3.3.127
+   Package: mingw-w64-ucrt-x86_64-gtkwave 3.3.127-1
+   Executable: C:\msys64\ucrt64\bin\gtkwave.exe
+   Remove only GTKWave while keeping MSYS2:
+     C:\msys64\usr\bin\pacman.exe -Rns mingw-w64-ucrt-x86_64-gtkwave
+   Startup/service impact: none.
+
+TOOLS ADDED DURING THIS WORK
+----------------------------
+
+10. Verilator
+    Installed version: 5.050-1
+    Package: mingw-w64-ucrt-x86_64-verilator
+    Install path: C:\msys64\ucrt64
+    Installed size reported by pacman as part of the four-package transaction:
+      41.81 MiB total
+    Purpose: strict independent SystemVerilog lint and cycle-model testing.
+    Remove:
+      C:\msys64\usr\bin\pacman.exe -Rns mingw-w64-ucrt-x86_64-verilator
+    Startup/service impact: none.
+
+11. Icarus Verilog
+    Installed version: 13.0-2 (stable v13_0)
+    Package: mingw-w64-ucrt-x86_64-iverilog
+    Executables:
+      C:\msys64\ucrt64\bin\iverilog.exe
+      C:\msys64\ucrt64\bin\vvp.exe
+    Purpose: independent four-state RTL simulation and portability checking.
+    Remove:
+      C:\msys64\usr\bin\pacman.exe -Rns mingw-w64-ucrt-x86_64-iverilog
+    Startup/service impact: none.
+
+12. Dependencies pulled by the Icarus installation
+    Packages:
+      mingw-w64-ucrt-x86_64-readline 8.3.003-1
+      mingw-w64-ucrt-x86_64-termcap 1.3.1-7
+    Remove after Icarus, only if pacman reports they are no longer required:
+      C:\msys64\usr\bin\pacman.exe -Rns mingw-w64-ucrt-x86_64-readline mingw-w64-ucrt-x86_64-termcap
+    Startup/service impact: none.
+
+13. GitHub CLI (portable)
+    Installed version: 2.96.0, released 2026-07-02
+    Install path:
+      portable_tools\github-cli\2.96.0
+    Executable:
+      portable_tools\github-cli\2.96.0\bin\gh.exe
+    Official archive:
+      https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_windows_amd64.zip
+    Verified archive SHA-256:
+      c2d6acc935cd2f00e2144d7e036d5cd82e6b6bd5594e8c75aa75ef2a4ed6aac3
+    Purpose: authenticate, push the private release branch, and create the
+    GitHub pull request.
+    Removal: delete portable_tools\github-cli\2.96.0
+    Startup/service impact: none. No PATH, registry, service, scheduled task,
+    or startup entry was created.
+
+RESEARCH SOURCE CHECKOUTS ADDED DURING THIS WORK
+------------------------------------------------
+
+These are source-only shallow Git checkouts, not installed programs. They do
+not alter PATH, the registry, services, or startup tasks.
+
+14. FlexViT
+    Path: external_research\FlexViT
+    Source: https://github.com/gicLAB/FlexViT
+    Pinned commit: 9884b9021c7bf73aa7de0152c37e308647ba6498
+    Removal: delete external_research\FlexViT
+
+15. I-ViT
+    Path: external_research\I-ViT
+    Source: https://github.com/zkkli/I-ViT
+    Pinned commit: 380ba99144e7dedf428477826a6b3060bf9b85d2
+    Removal: delete external_research\I-ViT
+
+16. FQ-ViT
+    Path: external_research\FQ-ViT
+    Source: https://github.com/megvii-research/FQ-ViT
+    Pinned commit: 5daf5915c715dc21d6afcd64e661652030e640ab
+    Removal: delete external_research\FQ-ViT
+
+17. AMD/Xilinx PYNQ reference sources
+    Path: external_research\PYNQ
+    Source: https://github.com/Xilinx/PYNQ
+    Sparse checkout: boards/Pynq-Z2
+    Pinned commit: 566b3cc8a5ad6ab979f7096a790d967373983e83
+    Purpose: authoritative PYNQ-Z2 processing-system, clock, reset, DMA, and
+    overlay integration reference.
+    Removal: delete external_research\PYNQ
+
+18. AMD/Xilinx Board Store
+    Path: external_research\XilinxBoardStore
+    Source: https://github.com/Xilinx/XilinxBoardStore
+    Sparse checkout: boards/TUL/pynq-z2 and catalog
+    Pinned commit: 12db223623433fda5981fe85308878d0e390fcc9
+    Purpose: official TUL PYNQ-Z2 Vivado board definition and PS7 preset.
+    A redistributable copy of the five PYNQ-Z2 board files and its license is
+    vendored under neuraedge_universal\third_party\XilinxBoardStore so builds do
+    not depend on a mutable online board catalog.
+    Removal: delete external_research\XilinxBoardStore; keep the vendored copy
+    when rebuilding the accelerator.
+
+INSTALL TRANSACTION LOG
+-----------------------
+
+Command run on 2026-07-11:
+  C:\msys64\usr\bin\pacman.exe -S --needed --noconfirm mingw-w64-ucrt-x86_64-verilator mingw-w64-ucrt-x86_64-iverilog
+
+Pacman reported:
+  Download: 9.50 MiB
+  Installed: 41.81 MiB
+  Packages: Verilator, Icarus Verilog, readline, termcap
+
+No Windows service, scheduled background worker, or boot-start application is
+required by any tool added in this work. All added tools are invoked explicitly
+by repository scripts.
+
+Final reporting pass on 2026-07-13:
+  No tool or Python package was installed. Existing Python 3.14, MiKTeX,
+  Vivado, and their command-line utilities were invoked directly. No service,
+  scheduled task, startup shortcut, or background process was created.
+
+Private-release pass on 2026-07-16:
+  Downloaded the official portable GitHub CLI 2.96.0 ZIP, verified its
+  GitHub-published SHA-256, extracted it under portable_tools, and deleted the
+  archive. No installer ran and no service, scheduled task, PATH entry, or
+  startup item was created.
+
+VIVADO BUILD CACHE
+------------------
+
+The complete PYNQ build uses D:\NeuraEdgeBuild by default because Vivado warns
+that the workspace's downloaded path can exceed the Windows 260-character limit
+inside generated block-design IP trees. This is generated build data, not an
+installed program, service, PATH entry, registry setting, or startup task.
+Set NEURAEDGE_VIVADO_BUILD_ROOT before running the build to choose another
+location. Removal: delete D:\NeuraEdgeBuild only when no Vivado build is active.

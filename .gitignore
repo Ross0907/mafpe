@@ -1,11 +1,20 @@
 .venv/
 external_research/
 data/
+datasets/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.Xil/
+xsim.dir/
+**/xsim_work/
 *.jou
-*.str
-*.wdb
 *.pb
 *.backup.jou
 *.backup.log
-.Xil/
-xsim.dir/
+*.vvp
+*.fst
+
+# Final VCD, WDB, SAIF, DCP, BIT, HWH, XSA, reports, and PDFs are intentional
+# release evidence and are therefore not ignored.

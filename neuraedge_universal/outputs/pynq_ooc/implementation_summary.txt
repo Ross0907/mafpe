@@ -1,0 +1,12 @@
+part=xc7z020clg400-1
+target_clock_mhz=200.0
+lut_count=41377
+ff_count=45380
+dsp48_count=110
+bram36_count=25
+bram18_count=6
+setup_wns_ns=0.031
+hold_whs_ns=-0.468
+route_error_count=0
+drc_error_count=0
+hold_context=ooc_top_ports_without_hd_partpin_locs

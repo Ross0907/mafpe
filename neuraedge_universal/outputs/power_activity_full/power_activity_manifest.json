@@ -1,0 +1,24 @@
+{
+  "format": "neuraedge-xsim-saif-v1",
+  "vivado_root": "D:\\AMDDesignTools\\2026.1\\Vivado",
+  "target_part": "xc7z020clg400-1",
+  "target_clock_mhz": 200,
+  "captures": [
+    {
+      "testbench": "tb_neuraedge_pynq_axi_top",
+      "scope": "/tb_neuraedge_pynq_axi_top/dut",
+      "duration": 5,
+      "unit": "us",
+      "saif": "saif\\tb_neuraedge_pynq_axi_top.saif",
+      "saif_bytes": 66185234
+    },
+    {
+      "testbench": "tb_neuraedge_universal_core",
+      "scope": "/tb_neuraedge_universal_core/dut",
+      "duration": 50,
+      "unit": "us",
+      "saif": "saif\\tb_neuraedge_universal_core.saif",
+      "saif_bytes": 63813764
+    }
+  ]
+}

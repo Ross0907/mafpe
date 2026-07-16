@@ -1,0 +1,31 @@
+// Exact, reviewed lint waivers for deliberate open pins and protocol fields.
+`verilator_config
+
+// These child outputs are not architectural state at this hierarchy. Leaving
+// them visibly open is clearer than synthesizing dummy nets.
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_buffered_tensor_core.sv" -match "Instance pin connected by name with empty reference: 'busy'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_buffered_tensor_core.sv" -match "Instance pin connected by name with empty reference: 'debug_accepted_issues'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_buffered_tensor_core.sv" -match "Instance pin connected by name with empty reference: 'debug_skipped_issues'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_buffered_tensor_core.sv" -match "Instance pin connected by name with empty reference: 'debug_retired_issues'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_integer_layernorm.sv" -match "Instance pin connected by name with empty reference: 'remainder'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_log_softmax.sv" -match "Instance pin connected by name with empty reference: 'remainder'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_universal_core.sv" -match "Instance pin connected by name with empty reference: 'status_busy'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_universal_core.sv" -match "Instance pin connected by name with empty reference: 'status_input_beats'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_universal_core.sv" -match "Instance pin connected by name with empty reference: 'status_output_beats'*"
+lint_off -rule PINCONNECTEMPTY -file "*rtl\\neuraedge_universal_core.sv" -match "Instance pin connected by name with empty reference: 'membrane_vector'*"
+
+// Command bits 109..127 are reserved by ABI 1.x and must be accepted as part
+// of the 128-bit command port even though current opcodes require only 109 bits.
+lint_off -rule UNUSEDSIGNAL -file "*rtl\\neuraedge_universal_core.sv" -match "Bits of signal are not used: 'command_data'[127:109]*"
+
+// LayerNorm's shared 64-bit divider supports a 64-bit mean/variance numerator;
+// every valid quotient is bounded to 32 bits by the signed-24 input contract.
+lint_off -rule UNUSEDSIGNAL -file "*rtl\\neuraedge_integer_layernorm.sv" -match "Bits of signal are not used: 'divider_quotient'[63:32]*"
+
+// The normalized softmax product is <= 2^31 because each numerator term is
+// included in its denominator. Only product bits needed for rounded Q15 remain.
+lint_off -rule UNUSEDSIGNAL -file "*rtl\\neuraedge_log_softmax.sv" -match "Bits of signal are not used: 'probability_product_r'[14:0]*"
+lint_off -rule UNUSEDSIGNAL -file "*rtl\\neuraedge_log_softmax.sv" -match "Bits of signal are not used: 'probability_high_product_r'[31:16]*"
+
+// Vivado board automation and PYNQ's HWH metadata expect this external name.
+lint_off -rule SYMRSVDWORD -file "*rtl\\neuraedge_pynq_axi_top.sv" -match "Symbol matches C++ common word: 'interrupt'*"

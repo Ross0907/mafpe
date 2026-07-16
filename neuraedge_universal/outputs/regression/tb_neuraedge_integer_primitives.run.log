@@ -1,0 +1,2 @@
+tb_neuraedge_integer_primitives PASSED divisions=105 square_roots=106
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_integer_primitives.sv:156: $finish called at 89070000 (1ps)

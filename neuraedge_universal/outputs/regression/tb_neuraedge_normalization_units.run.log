@@ -1,0 +1,17 @@
+layernorm_case=0 features=1 cycles=466
+layernorm_case=1 features=4 cycles=562
+layernorm_case=2 features=7 cycles=658
+layernorm_case=3 features=32 cycles=1458
+layernorm_case=4 features=64 cycles=2483
+layernorm_case=5 features=127 cycles=4499
+layernorm_case=6 features=384 cycles=12723
+layernorm_case=7 features=1536 cycles=49586
+softmax_case=0 items=1 cycles=83
+softmax_case=1 items=4 cycles=129
+softmax_case=2 items=7 cycles=176
+softmax_case=3 items=32 cycles=563
+softmax_case=4 items=64 cycles=1059
+softmax_case=5 items=127 cycles=2036
+softmax_case=6 items=256 cycles=4036
+tb_neuraedge_normalization_units PASSED layernorm=2155 softmax=491
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_normalization_units.sv:281: $finish called at 402760000 (1ps)

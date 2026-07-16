@@ -1,0 +1,35 @@
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe -debug typical -timescale 1ns/1ps -snapshot tb_neuraedge_pynq_axi_top_power_snapshot work.tb_neuraedge_pynq_axi_top 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.neuraedge_command_pkg
+Compiling module work.neuraedge_descriptor_sequencer
+Compiling module work.neuraedge_active_index_buffer
+Compiling module work.neuraedge_activation_buffer
+Compiling module work.neuraedge_weight_bank
+Compiling module work.neuraedge_mac2_u8
+Compiling module work.neuraedge_tensor_tile_default
+Compiling module work.neuraedge_buffered_tensor_core_d...
+Compiling module work.neuraedge_alpha_xnor_default
+Compiling module work.neuraedge_vector_alu
+Compiling module work.neuraedge_udivider_default
+Compiling module work.neuraedge_isqrt64
+Compiling module work.neuraedge_integer_layernorm
+Compiling module work.neuraedge_udivider(NUMERATOR_BIT...
+Compiling module work.neuraedge_log_softmax
+Compiling module work.neuraedge_lif_bank_default
+Compiling module work.neuraedge_sgd_optimizer8_default
+Compiling module work.neuraedge_gradient_accumulator_b...
+Compiling module work.neuraedge_linear_backward8_defau...
+Compiling module work.neuraedge_activation_lut8
+Compiling module work.neuraedge_universal_core
+Compiling module work.neuraedge_pynq_axi_top
+Compiling module work.tb_neuraedge_pynq_axi_top
+Built simulation snapshot tb_neuraedge_pynq_axi_top_power_snapshot

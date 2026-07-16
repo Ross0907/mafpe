@@ -1,0 +1,43 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_command_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_activation_buffer.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_activation_buffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_activation_lut8.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_activation_lut8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_active_index_buffer.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_active_index_buffer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_alpha_xnor.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_alpha_xnor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_buffered_tensor_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_buffered_tensor_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_descriptor_sequencer.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_descriptor_sequencer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_gradient_accumulator_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_gradient_accumulator_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_integer_layernorm.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_integer_layernorm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_isqrt64.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_isqrt64
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_lif_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_lif_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_linear_backward8.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_linear_backward8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_log_softmax.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_log_softmax
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_mac2_array_probe.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_mac2_array_probe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_mac2_u8.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_mac2_u8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_pynq_axi_top.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_pynq_axi_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_sgd_optimizer8.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_sgd_optimizer8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_tensor_tile.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_tensor_tile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_udivider.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_udivider
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_universal_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_universal_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_vector_alu.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_vector_alu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/rtl/neuraedge_weight_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module neuraedge_weight_bank

@@ -1,0 +1,4 @@
+pairs=128
+products_per_cycle=256
+dsp48_count=128
+wns_ns=1.250

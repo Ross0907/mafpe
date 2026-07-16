@@ -1,0 +1,2 @@
+tb_neuraedge_lif_bank PASSED checked=101 timesteps=1 spikes=0
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_lif_bank.sv:203: $finish called at 18995000 (1ps)

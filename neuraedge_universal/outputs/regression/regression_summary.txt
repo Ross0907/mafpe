@@ -1,0 +1,6 @@
+result=PASS
+python_executable=C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\external_research\spikingformer_py310\Scripts\python.exe
+iverilog_executable=C:\msys64\ucrt64\bin\iverilog.exe
+verilator_environment=C:\msys64
+rtl_testbench_count=15
+completed_utc=2026-07-16T10:49:54.8996220Z

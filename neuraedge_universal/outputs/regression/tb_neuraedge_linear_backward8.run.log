@@ -1,0 +1,2 @@
+tb_neuraedge_linear_backward8 PASSED tiles=57 random=48
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_linear_backward8.sv:719: $finish called at 140655000 (1ps)

@@ -1,16 +1,23 @@
 # Private Repository Policy
 
-This working tree is treated as a private research repository and release source.
+This repository is the private, reproducible NeuraEdge Universal release.
 
-- Private GitHub release pushes should include accelerator RTL, reproducibility scripts, fixed-point memory fixtures, validation reports, Vivado reports, and generated PDF/PNG debug artifacts.
-- Private GitHub release pushes should not include Python virtual environments, downloaded datasets, transient Vivado project directories, training checkpoints unless explicitly needed, or unrelated local files.
-- `run_neuraedge_private_full.ps1` runs local export, Vivado simulation, Vivado implementation, validation, and report generation before packaging.
-- Generated canonical reports are stored under `cifar10_neuromorphic\outputs_spikingformer_head_accelerator`.
-- Large external environments and datasets stay local under `external_research` and `datasets`.
-- The GitHub remote must be private before any accelerator release package is uploaded.
+- Include synthesizable RTL, software/compiler/runtime code, tests, scripts,
+  board files, compact model artifacts, final routed hardware handoff files,
+  native Vivado reports, representative SAIF, VCD/WDB waveforms, plots, and
+  compiled documentation.
+- Exclude virtual environments, downloaded research checkouts, raw CIFAR-10
+  shard payloads, training checkpoints, Vivado project caches, XSim work
+  directories, compiled simulator binaries, and duplicate timing iterations.
+- Keep `Ross0907/mafpe` private before pushing any hardware or model artifact.
+- Recompute `RELEASE_MANIFEST.json` and `RELEASE_MANIFEST.csv` with
+  `generate_release_manifest.ps1` after changing release contents.
+- Run `neuraedge_universal\scripts\run_regression.ps1` after RTL, protocol,
+  compiler, or test source changes. Regenerate the release manifest after the
+  regression updates its logs, then run `verify_private_release.ps1`.
+- Label Vivado power output as a routed implementation estimate and retain its
+  confidence/net-match data. Physical board measurements require a connected
+  board and instrument metadata.
 
-Current canonical local command:
-
-```powershell
-.\run_neuraedge_private_full.ps1
-```
+The canonical implementation target is PYNQ-Z2 `xc7z020clg400-1` with a
+200 MHz accelerator clock, 125 MHz DMA/HP0 domain, and 100 MHz control domain.

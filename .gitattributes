@@ -1,0 +1,11 @@
+* -text
+
+*.bit binary
+*.bin binary
+*.dcp binary
+*.jpg binary
+*.npz binary
+*.pdf binary
+*.png binary
+*.wdb binary
+*.xsa binary

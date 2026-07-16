@@ -1,0 +1,803 @@
+{
+  "format": "neuraedge-source-reference-v1",
+  "files": [
+    {
+      "path": "rtl/neuraedge_activation_buffer.sv",
+      "sha256": "a8aa1b3cd14547b3391d2b6de5068cdebebdde6820e110a313edd4e0093e3415",
+      "lines": 29,
+      "nonblank_lines": 25,
+      "explained_nonblank_lines": 25,
+      "purpose": "stores one local tile of unsigned eight-bit activations for repeated tensor-array reads"
+    },
+    {
+      "path": "rtl/neuraedge_activation_lut8.sv",
+      "sha256": "db5cef89c38db6e5e35c5f77b53e1442d8d95505233b2ade00ff1b52f9b11a62",
+      "lines": 206,
+      "nonblank_lines": 195,
+      "explained_nonblank_lines": 195,
+      "purpose": "loads and evaluates a programmable 256-entry activation lookup table on eight lanes"
+    },
+    {
+      "path": "rtl/neuraedge_active_index_buffer.sv",
+      "sha256": "44230758377aea4e9f3799bf73038d74f2cc9da0b31bf1c740c41d533ddfb31d",
+      "lines": 32,
+      "nonblank_lines": 28,
+      "explained_nonblank_lines": 28,
+      "purpose": "stores the reduction indices that remain after all-zero activation positions are compacted"
+    },
+    {
+      "path": "rtl/neuraedge_alpha_xnor.sv",
+      "sha256": "33437a61c3206ca03741feb697a0c8bd86cbae803d04fa3ddf628c937d08a451",
+      "lines": 250,
+      "nonblank_lines": 230,
+      "explained_nonblank_lines": 230,
+      "purpose": "computes alpha-weighted XNOR spiking similarity and streams its accumulated scores"
+    },
+    {
+      "path": "rtl/neuraedge_buffered_tensor_core.sv",
+      "sha256": "0c4eb9028d91f7b93ee3024374530fdd8ff6930d1757b50a7839b4de58148d45",
+      "lines": 985,
+      "nonblank_lines": 918,
+      "explained_nonblank_lines": 918,
+      "purpose": "loads activation and weight tiles, compacts sparse reduction positions, schedules the physical tensor tile, and isolates result backpressure with a registered skid FIFO"
+    },
+    {
+      "path": "rtl/neuraedge_command_pkg.sv",
+      "sha256": "e7ef5e0140d20c49ba4fdc02fd09e8a44f63ba28a3e24c54aeb9cc57fe00a9eb",
+      "lines": 37,
+      "nonblank_lines": 34,
+      "explained_nonblank_lines": 34,
+      "purpose": "defines the shared command opcodes and tensor-mode encodings used by RTL and host software"
+    },
+    {
+      "path": "rtl/neuraedge_descriptor_sequencer.sv",
+      "sha256": "47f2d232bb2fd28f313226aea575ab2ce864949fc052774ddfbeb2e62e1990ec",
+      "lines": 360,
+      "nonblank_lines": 335,
+      "explained_nonblank_lines": 335,
+      "purpose": "turns a multi-record DMA program into checked core commands and payload/output streams"
+    },
+    {
+      "path": "rtl/neuraedge_gradient_accumulator_bank.sv",
+      "sha256": "b5a420786e2a116f7d9ea4bf9430bbad2d6d6580716950564016ba298e776d61",
+      "lines": 27,
+      "nonblank_lines": 23,
+      "explained_nonblank_lines": 23,
+      "purpose": "stores one lane of exact cross-command backward gradients in inferred distributed memory"
+    },
+    {
+      "path": "rtl/neuraedge_integer_layernorm.sv",
+      "sha256": "137506b85b468d9c29daf6a5209a63cc0b53867ff4dd084ac6a0e8d56d01e986",
+      "lines": 735,
+      "nonblank_lines": 671,
+      "explained_nonblank_lines": 671,
+      "purpose": "evaluates integer LayerNorm by accumulating moments, taking an integer square root, dividing, scaling, and saturating"
+    },
+    {
+      "path": "rtl/neuraedge_isqrt64.sv",
+      "sha256": "3dc76aaa37cc26e5983da384a23fd3f32252eff2a03b8519034dc59bff4c49a8",
+      "lines": 97,
+      "nonblank_lines": 88,
+      "explained_nonblank_lines": 88,
+      "purpose": "computes an exact floor square root of an unsigned 64-bit radicand with an iterative restoring algorithm"
+    },
+    {
+      "path": "rtl/neuraedge_lif_bank.sv",
+      "sha256": "bc84ea63b011839b4f7c08bafbc0ce4adb753d2d7145739e5c5e33a147298899",
+      "lines": 305,
+      "nonblank_lines": 282,
+      "explained_nonblank_lines": 282,
+      "purpose": "stores 32 persistent membrane values and applies leak, integration, threshold, reset, and spike counting"
+    },
+    {
+      "path": "rtl/neuraedge_linear_backward8.sv",
+      "sha256": "355e62e6798f7ef9e69e9450450ba27a6f5251468d665f6b28ae56eaf69e762f",
+      "lines": 1004,
+      "nonblank_lines": 941,
+      "explained_nonblank_lines": 941,
+      "purpose": "computes exact tiled linear-layer input and weight gradients with a reusable four-by-four signed DSP array"
+    },
+    {
+      "path": "rtl/neuraedge_log_softmax.sv",
+      "sha256": "88bc3c90935a3d4bd02c3a203cce93c96f1a43d2d0fa6cc59cd287c190d0eb3b",
+      "lines": 302,
+      "nonblank_lines": 276,
+      "explained_nonblank_lines": 276,
+      "purpose": "implements power-of-two integer softmax normalization without floating-point exponent hardware"
+    },
+    {
+      "path": "rtl/neuraedge_mac2_array_probe.sv",
+      "sha256": "4654e229fa0ef5e803363d3a8f74cbac906f9b915b84cfb6f4c649e9668b3a03",
+      "lines": 50,
+      "nonblank_lines": 45,
+      "explained_nonblank_lines": 45,
+      "purpose": "instantiates many packed MAC blocks solely to measure their routed FPGA resource and timing behavior"
+    },
+    {
+      "path": "rtl/neuraedge_mac2_u8.sv",
+      "sha256": "22c801a042ab0f539ea10135d9f2fc5f2ebbb8bd5d7ed9f2cb102412d1f20c14",
+      "lines": 67,
+      "nonblank_lines": 63,
+      "explained_nonblank_lines": 63,
+      "purpose": "packs two exact unsigned eight-bit multiplications into one DSP48E1 multiplication"
+    },
+    {
+      "path": "rtl/neuraedge_pynq_axi_top.sv",
+      "sha256": "187c20f63bdca30df26837c9314be8baf8ec40315b2ae1270482c56e4b36d10c",
+      "lines": 663,
+      "nonblank_lines": 639,
+      "explained_nonblank_lines": 639,
+      "purpose": "provides AXI-Lite control, AXI-Stream DMA, interrupts, descriptor mode, and hardware telemetry for PYNQ"
+    },
+    {
+      "path": "rtl/neuraedge_sgd_optimizer8.sv",
+      "sha256": "efa1b92dd464a57c5d2981ba29f5847ddc45514e926bbe2cc54966d7a79eca8a",
+      "lines": 462,
+      "nonblank_lines": 420,
+      "explained_nonblank_lines": 420,
+      "purpose": "applies signed fixed-point SGD with momentum to eight weight lanes and stores updated state"
+    },
+    {
+      "path": "rtl/neuraedge_tensor_tile.sv",
+      "sha256": "e7c9ed958eb5df536c042e3611fe5c8e2b14b1e289dc672ff247f0176d42c74d",
+      "lines": 1184,
+      "nonblank_lines": 1133,
+      "explained_nonblank_lines": 1133,
+      "purpose": "implements the eight-row by sixteen-column dense, binary, and ternary arithmetic array"
+    },
+    {
+      "path": "rtl/neuraedge_udivider.sv",
+      "sha256": "3f9d7cf30b2222a20fee3b1d2258f2fd7da2c2abd0e2d06df99d07d94895f964",
+      "lines": 141,
+      "nonblank_lines": 127,
+      "explained_nonblank_lines": 127,
+      "purpose": "performs deterministic unsigned integer division one quotient bit per cycle"
+    },
+    {
+      "path": "rtl/neuraedge_universal_core.sv",
+      "sha256": "6db73f801c2c8327d112d2f84c32a0d47426fabfe7186ee99221b1822d621f35",
+      "lines": 1220,
+      "nonblank_lines": 1182,
+      "explained_nonblank_lines": 1182,
+      "purpose": "decodes commands and arbitrates the tensor, vector, normalization, LIF, LUT, attention, backward, and optimizer engines through a staged result path"
+    },
+    {
+      "path": "rtl/neuraedge_vector_alu.sv",
+      "sha256": "12ace51ebf6741dd0e388d7df5487849ec18a484d96dc2ea7742822982a97907",
+      "lines": 459,
+      "nonblank_lines": 430,
+      "explained_nonblank_lines": 430,
+      "purpose": "executes lane-wise residual, activation, comparison, requantization, and pooling primitives"
+    },
+    {
+      "path": "rtl/neuraedge_weight_bank.sv",
+      "sha256": "e5e218f1eb3476eeb3329681df2f1ed9a7035cb9df1591581cc518f309ecefd6",
+      "lines": 41,
+      "nonblank_lines": 37,
+      "explained_nonblank_lines": 37,
+      "purpose": "stores one 16-column by 2,048-entry weight tile in banked FPGA memory"
+    },
+    {
+      "path": "software/benchmark_compiler_memory.py",
+      "sha256": "bc51940300824b2a202cc54dee022315a0dcb5e03dfa526df93b0d5a709bfb34",
+      "lines": 68,
+      "nonblank_lines": 58,
+      "explained_nonblank_lines": 58,
+      "purpose": "measures time, memory, command count, and byte traffic for the largest real Spikingformer projection"
+    },
+    {
+      "path": "software/evaluate_spikingformer.py",
+      "sha256": "745c070b9cb2ece0fdb3c74310103b465ad1764f27ff600df6854c134f9c9c55",
+      "lines": 261,
+      "nonblank_lines": 234,
+      "explained_nonblank_lines": 234,
+      "purpose": "evaluates the source checkpoint and exported integer arithmetic over the complete CIFAR-10 test set"
+    },
+    {
+      "path": "software/export_cifar10_shards.py",
+      "sha256": "6f78b609111b932eff8f200a3fc4446c6158ca9659dc9fdb16a92869154bee61",
+      "lines": 99,
+      "nonblank_lines": 88,
+      "explained_nonblank_lines": 88,
+      "purpose": "writes deterministic CIFAR-10 training and validation shards for bounded-memory board-side learning"
+    },
+    {
+      "path": "software/export_spikingformer_hardware.py",
+      "sha256": "43ae8df357e977ebb3908e3e7c68fd6ccd07668983712420519bb19232a3a93e",
+      "lines": 273,
+      "nonblank_lines": 243,
+      "explained_nonblank_lines": 243,
+      "purpose": "folds BatchNorm, calibrates quantizers, and writes aligned hashed hardware parameter sections"
+    },
+    {
+      "path": "software/generate_debug_report.py",
+      "sha256": "de502e81ae41f162fa3ef0cb652533658a07aea060bcbf64a3fa83e9783695b6",
+      "lines": 1139,
+      "nonblank_lines": 1042,
+      "explained_nonblank_lines": 1042,
+      "purpose": "turns full-test predictions, compiler manifests, XSim waveforms, and final Vivado reports into auditable plots and PDFs"
+    },
+    {
+      "path": "software/generate_operator_fixtures.py",
+      "sha256": "e014988c92084b70fd54487e9744e998f51d190b59d1f14c3a3f00de6c310f53",
+      "lines": 295,
+      "nonblank_lines": 264,
+      "explained_nonblank_lines": 264,
+      "purpose": "builds independent LayerNorm, softmax, vector, optimizer, and LUT vectors for RTL tests"
+    },
+    {
+      "path": "software/generate_source_reference.py",
+      "sha256": "35ea0fc4a0f8fda6e3d0469c1f21fa27bcd4dea7419f85b4798b38bebf2e5b54",
+      "lines": 863,
+      "nonblank_lines": 806,
+      "explained_nonblank_lines": 806,
+      "purpose": "generates this source-reference volume and its source-integrity manifest"
+    },
+    {
+      "path": "software/generate_spikingformer_manifest.py",
+      "sha256": "ce04df3e80bcf5b9d46a6519ebf6b2d37b5e223ed45377252ba5d07bebb10ef8",
+      "lines": 332,
+      "nonblank_lines": 307,
+      "explained_nonblank_lines": 307,
+      "purpose": "derives every model tensor shape, tile schedule, command count, operation count, and traffic total"
+    },
+    {
+      "path": "software/generate_tensor_tile_fixture.py",
+      "sha256": "e51873870ae8243fb70333f970c5d01c8cfc9c847f45825de71aa7de57eb31ed",
+      "lines": 185,
+      "nonblank_lines": 156,
+      "explained_nonblank_lines": 156,
+      "purpose": "builds deterministic dense, binary, and ternary tensor vectors for bit-exact RTL comparison"
+    },
+    {
+      "path": "software/generate_training_coverage.py",
+      "sha256": "9e22aa6ec729470e5640802d45faf93b6fd40b7792a7ac238b88a624c39bcf07",
+      "lines": 36,
+      "nonblank_lines": 29,
+      "explained_nonblank_lines": 29,
+      "purpose": "records which Spikingformer parameters receive hardware gradients and optimizer updates in each training policy"
+    },
+    {
+      "path": "software/neuraedge_compiler.py",
+      "sha256": "6bb13258b3746010f9f0bbe01e7327d58b6a0b31c749991fe850cabbbe274c21",
+      "lines": 781,
+      "nonblank_lines": 699,
+      "explained_nonblank_lines": 699,
+      "purpose": "tiles matrices and convolutions into validated accelerator commands and packed stream payloads"
+    },
+    {
+      "path": "software/neuraedge_golden.py",
+      "sha256": "317293fee0e490a9b1c8676b0c25bdc8b48edbc3ea1b694e92e811bf7fca834c",
+      "lines": 432,
+      "nonblank_lines": 371,
+      "explained_nonblank_lines": 371,
+      "purpose": "implements independent mathematical reference models for every hardware arithmetic primitive"
+    },
+    {
+      "path": "software/neuraedge_protocol.py",
+      "sha256": "a08e700f221b67313bd6c19dbf0e14ddca3d14f62eaa662b21b0d47f0a3c5a07",
+      "lines": 695,
+      "nonblank_lines": 580,
+      "explained_nonblank_lines": 580,
+      "purpose": "defines command bit fields, descriptor records, packed streams, and result decoders"
+    },
+    {
+      "path": "software/neuraedge_pynq.py",
+      "sha256": "1563b1897a0f4474bb0458d0d1e5491446df14f58210c33fef1e5ee97e640479",
+      "lines": 425,
+      "nonblank_lines": 382,
+      "explained_nonblank_lines": 382,
+      "purpose": "controls the overlay, AXI-Lite registers, DMA allocation, packet partitioning, errors, and telemetry"
+    },
+    {
+      "path": "software/neuraedge_training.py",
+      "sha256": "e2b789623685aeeccc3a2f2c621a163ea6edc404c0008a4639d3b3cb64e9fc87",
+      "lines": 1522,
+      "nonblank_lines": 1408,
+      "explained_nonblank_lines": 1408,
+      "purpose": "builds quantized forward, backward, surrogate-gradient, and optimizer programs for hardware-resident supervised updates"
+    },
+    {
+      "path": "software/run_spikingformer_pynq.py",
+      "sha256": "1f913fcb2bb7916f0fdd784268233e35b6b75822297f111a654d57d6f30bc051",
+      "lines": 87,
+      "nonblank_lines": 74,
+      "explained_nonblank_lines": 74,
+      "purpose": "loads one CIFAR-10 image and executes the complete exported Spikingformer graph on a PYNQ overlay"
+    },
+    {
+      "path": "software/spikingformer_accelerator.py",
+      "sha256": "8f174e3f6ad1a9edbfb1b481c5e071931b06f5ac5d237ad6543a8484dfa8df5d",
+      "lines": 772,
+      "nonblank_lines": 709,
+      "explained_nonblank_lines": 709,
+      "purpose": "maps all tokenizer, spiking attention, MLP, residual, reduction, and classifier stages to hardware operations"
+    },
+    {
+      "path": "software/spikingformer_parameters.py",
+      "sha256": "0115dc97c3fca69b67b8b82135e755a769b1afda47ea7c1d75fff70f6b12118d",
+      "lines": 213,
+      "nonblank_lines": 187,
+      "explained_nonblank_lines": 187,
+      "purpose": "validates and exposes typed read-only views of the aligned parameter archive"
+    },
+    {
+      "path": "software/spikingformer_quantization.py",
+      "sha256": "21e8312b8670b695c48cf11358e7e3ce2395f38d68cd58e74ee3731365f2cf61",
+      "lines": 297,
+      "nonblank_lines": 259,
+      "explained_nonblank_lines": 259,
+      "purpose": "defines calibration, signed/unsigned affine quantization, rounding, saturation, and folded projection math"
+    },
+    {
+      "path": "software/spikingformer_reference.py",
+      "sha256": "fe453ee30c5d1a50184abb91231b291a61b25fb04fd4434549306d6480a16883",
+      "lines": 390,
+      "nonblank_lines": 337,
+      "explained_nonblank_lines": 337,
+      "purpose": "reconstructs the trained source graph and its integer hardware-emulation path for accuracy comparison"
+    },
+    {
+      "path": "software/spikingformer_training_runtime.py",
+      "sha256": "5ed0c28004b469f020b8b2f2b9c89a6a9af31e1b0ad3815996e99810f02062dd",
+      "lines": 1993,
+      "nonblank_lines": 1846,
+      "explained_nonblank_lines": 1846,
+      "purpose": "runs resumable CIFAR-10 training through the accelerator command ABI with atomic checkpoints and validation"
+    },
+    {
+      "path": "software/train_spikingformer_pynq.py",
+      "sha256": "c5b73d8478ba2817df2fe5c9cb0b0b056a60543ac90d4485461798e8a1e8d47d",
+      "lines": 339,
+      "nonblank_lines": 311,
+      "explained_nonblank_lines": 311,
+      "purpose": "provides the board-training command line, validates artifacts, and coordinates resume, pause, epochs, and reports"
+    },
+    {
+      "path": "tb/tb_neuraedge_activation_lut8.sv",
+      "sha256": "93f00d6e939d69b8adbb28aa898471ae5d54dbd2e9e0831e4b3c695a91568697",
+      "lines": 150,
+      "nonblank_lines": 138,
+      "explained_nonblank_lines": 138,
+      "purpose": "drives, backpressures, and checks the neuraedge activation lut8 RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_alpha_xnor.sv",
+      "sha256": "a67d278ace0bc4e05d44850d386c710851f664e6283fa9060ae4333d70efb00e",
+      "lines": 174,
+      "nonblank_lines": 158,
+      "explained_nonblank_lines": 158,
+      "purpose": "drives, backpressures, and checks the neuraedge alpha xnor RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_buffered_tensor_core.sv",
+      "sha256": "deeb85c75550d00e653ac8a98b46215fb3190a679c3bfb743b13db265850fdc6",
+      "lines": 428,
+      "nonblank_lines": 395,
+      "explained_nonblank_lines": 395,
+      "purpose": "drives, backpressures, and checks the neuraedge buffered tensor core RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_descriptor_sequencer.sv",
+      "sha256": "fa289bcbe36e75d5bf9c90411763805f420935118e206f5e8b9bbb2d0aeaff9a",
+      "lines": 222,
+      "nonblank_lines": 206,
+      "explained_nonblank_lines": 206,
+      "purpose": "drives, backpressures, and checks the neuraedge descriptor sequencer RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_integer_primitives.sv",
+      "sha256": "21507fa416010d2572bf33d830d84aea4a787e22f1f59033bae234a1f927c5e3",
+      "lines": 166,
+      "nonblank_lines": 151,
+      "explained_nonblank_lines": 151,
+      "purpose": "drives, backpressures, and checks the neuraedge integer primitives RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_lif_bank.sv",
+      "sha256": "69c176a740463c23dd7b4aafadd1f8d2b7813df76c7e29741087cef443cc0075",
+      "lines": 213,
+      "nonblank_lines": 194,
+      "explained_nonblank_lines": 194,
+      "purpose": "drives, backpressures, and checks the neuraedge lif bank RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_linear_backward8.sv",
+      "sha256": "e5bbae788049fd6006c48012db61f23bc8586b69222cb96735e67847ebb2ad5f",
+      "lines": 728,
+      "nonblank_lines": 693,
+      "explained_nonblank_lines": 693,
+      "purpose": "drives, backpressures, and checks the neuraedge linear backward8 RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_mac2_u8.sv",
+      "sha256": "3d1cce004e8ae129746547e22ef1e59cf275a3ef14c0702b337e7d71676a81ab",
+      "lines": 108,
+      "nonblank_lines": 96,
+      "explained_nonblank_lines": 96,
+      "purpose": "drives, backpressures, and checks the neuraedge mac2 u8 RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_normalization_units.sv",
+      "sha256": "8130c4cd0751ae85712a73bb094ed12585fb4bf12b14be6afa9d6219adc186c2",
+      "lines": 291,
+      "nonblank_lines": 270,
+      "explained_nonblank_lines": 270,
+      "purpose": "drives, backpressures, and checks the neuraedge normalization units RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_pynq_axi_top.sv",
+      "sha256": "2c3e6e2b8b6294aa1869a47b09c691178c3eab61726f419fcfb61d0742083d6e",
+      "lines": 322,
+      "nonblank_lines": 303,
+      "explained_nonblank_lines": 303,
+      "purpose": "drives, backpressures, and checks the neuraedge pynq axi top RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_pynq_descriptor.sv",
+      "sha256": "17308bd4162f5ac6226501d9d5819fb92df7416949869695172f49783d6dcc3c",
+      "lines": 156,
+      "nonblank_lines": 145,
+      "explained_nonblank_lines": 145,
+      "purpose": "drives, backpressures, and checks the neuraedge pynq descriptor RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_sgd_optimizer8.sv",
+      "sha256": "5e30b428cab3c203240c270030a96236dceb2c642135f02d9ec069f7bc70b68a",
+      "lines": 159,
+      "nonblank_lines": 144,
+      "explained_nonblank_lines": 144,
+      "purpose": "drives, backpressures, and checks the neuraedge sgd optimizer8 RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_tensor_tile.sv",
+      "sha256": "5f080475948a486a8b14dd7ca634da5237b4b90e6413a1e3e60dd01307f72e49",
+      "lines": 315,
+      "nonblank_lines": 297,
+      "explained_nonblank_lines": 297,
+      "purpose": "drives, backpressures, and checks the neuraedge tensor tile RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_universal_core.sv",
+      "sha256": "c258df5a11dc38b5bb59d34c1cef29646b87806a4e1480796b02e973b450edd4",
+      "lines": 514,
+      "nonblank_lines": 486,
+      "explained_nonblank_lines": 486,
+      "purpose": "drives, backpressures, and checks the neuraedge universal core RTL block in simulation"
+    },
+    {
+      "path": "tb/tb_neuraedge_vector_alu.sv",
+      "sha256": "7f369761b5c3394d7ed70e25a934e44e532628a67764d2b1715b1d98c61937f6",
+      "lines": 151,
+      "nonblank_lines": 137,
+      "explained_nonblank_lines": 137,
+      "purpose": "drives, backpressures, and checks the neuraedge vector alu RTL block in simulation"
+    },
+    {
+      "path": "tests/test_build_contract.py",
+      "sha256": "391ff2d5a40c79b02a11a5689370b52e770c9b5dc1d0fb92aa3c1becd5ceaafb",
+      "lines": 89,
+      "nonblank_lines": 73,
+      "explained_nonblank_lines": 73,
+      "purpose": "checks build contract behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_debug_report.py",
+      "sha256": "889d97bc7baed1bbf02ee1883771c702003c8639a638256084a815999cf89ebd",
+      "lines": 87,
+      "nonblank_lines": 78,
+      "explained_nonblank_lines": 78,
+      "purpose": "checks debug report behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_documentation_generator.py",
+      "sha256": "92191b9562fc9f8d7ce92a0edf129d76e5948be09c7d3caa29a401408d5e3427",
+      "lines": 82,
+      "nonblank_lines": 72,
+      "explained_nonblank_lines": 72,
+      "purpose": "checks documentation generator behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_neuraedge_compiler.py",
+      "sha256": "146ccf9d564e8913b4185223e64e72d2aa9756ccf066b9f4352b7ac6e561b86c",
+      "lines": 279,
+      "nonblank_lines": 250,
+      "explained_nonblank_lines": 250,
+      "purpose": "checks neuraedge compiler behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_neuraedge_golden.py",
+      "sha256": "654a69c9f09f45f581ae7d9f6f59be3d467f2504f83959caff183a29fa7089e9",
+      "lines": 277,
+      "nonblank_lines": 251,
+      "explained_nonblank_lines": 251,
+      "purpose": "checks neuraedge golden behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_neuraedge_protocol.py",
+      "sha256": "cf39d999248e404af3fc70c07587efdfed784f73b206925b0ee82809687ee9df",
+      "lines": 295,
+      "nonblank_lines": 277,
+      "explained_nonblank_lines": 277,
+      "purpose": "checks neuraedge protocol behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_neuraedge_pynq.py",
+      "sha256": "b637d22c56230b82d08789d7a12d0204ab756adb9cffbcc158918171de131262",
+      "lines": 172,
+      "nonblank_lines": 145,
+      "explained_nonblank_lines": 145,
+      "purpose": "checks neuraedge pynq behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_neuraedge_training.py",
+      "sha256": "15b2eea53058fcf59198b51ff2db1ffb79e6f8c73df4853835d102608e8cfb14",
+      "lines": 632,
+      "nonblank_lines": 597,
+      "explained_nonblank_lines": 597,
+      "purpose": "checks neuraedge training behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_run_spikingformer_pynq.py",
+      "sha256": "96cf4d1f876fc55a55fdc764cbb93734bd4cb90d14c5663b36d982ca10508257",
+      "lines": 29,
+      "nonblank_lines": 21,
+      "explained_nonblank_lines": 21,
+      "purpose": "checks run spikingformer pynq behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_spikingformer_accelerator.py",
+      "sha256": "91ea4ee82db5129096f0c4445fe0c431a1e26a909df0cdac4a7ff770778be505",
+      "lines": 275,
+      "nonblank_lines": 245,
+      "explained_nonblank_lines": 245,
+      "purpose": "checks spikingformer accelerator behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_spikingformer_export.py",
+      "sha256": "926f76a625c4b1e7b87d310296ad27e2a94852a9ad0d7e37f128119947019839",
+      "lines": 61,
+      "nonblank_lines": 52,
+      "explained_nonblank_lines": 52,
+      "purpose": "checks spikingformer export behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_spikingformer_manifest.py",
+      "sha256": "0d39a8788a7758027f1a6fb4b2e9b10290421ef1241597f68cfe1edfd2b27714",
+      "lines": 49,
+      "nonblank_lines": 38,
+      "explained_nonblank_lines": 38,
+      "purpose": "checks spikingformer manifest behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_spikingformer_parameters.py",
+      "sha256": "c4177e2d959ebe090549cf621477d00bbd67cc90c3e52b97f92b7559334a3b36",
+      "lines": 81,
+      "nonblank_lines": 71,
+      "explained_nonblank_lines": 71,
+      "purpose": "checks spikingformer parameters behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_spikingformer_reference.py",
+      "sha256": "9e9583570cc363aa336b2bbbc6097401cb9b8298cd3b4237175c296ae96d30ff",
+      "lines": 151,
+      "nonblank_lines": 129,
+      "explained_nonblank_lines": 129,
+      "purpose": "checks spikingformer reference behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_spikingformer_training_runtime.py",
+      "sha256": "0a5dbfe8ff2fb75b3e38db5c2f8f0ff9f33e5772ae707bc300ee5e3784fd35e3",
+      "lines": 314,
+      "nonblank_lines": 285,
+      "explained_nonblank_lines": 285,
+      "purpose": "checks spikingformer training runtime behavior independently with Python assertions"
+    },
+    {
+      "path": "tests/test_train_spikingformer_pynq.py",
+      "sha256": "2f7587c044c49c15c43d80d7d54f64f2637edfa2c56ae3c4c0e5eb928d58a5c8",
+      "lines": 80,
+      "nonblank_lines": 69,
+      "explained_nonblank_lines": 69,
+      "purpose": "checks train spikingformer pynq behavior independently with Python assertions"
+    },
+    {
+      "path": "scripts/capture_power_activity.ps1",
+      "sha256": "db10d4f647151db69093fa12c71e1469a7c880edfd745eebb1d9b0fbc851434c",
+      "lines": 122,
+      "nonblank_lines": 114,
+      "explained_nonblank_lines": 114,
+      "purpose": "orchestrates the repeatable Windows capture power activity command-line flow"
+    },
+    {
+      "path": "scripts/capture_waveforms.ps1",
+      "sha256": "0c5f114acad318871ae192e961e50629af35d7be53e9c3e8d89e22c94e2dd944",
+      "lines": 150,
+      "nonblank_lines": 137,
+      "explained_nonblank_lines": 137,
+      "purpose": "orchestrates the repeatable Windows capture waveforms command-line flow"
+    },
+    {
+      "path": "scripts/deploy_to_pynq.ps1",
+      "sha256": "c717968a62df014a09882436bb8e8529b99c24a722846ab7c195de0a7c23c87f",
+      "lines": 52,
+      "nonblank_lines": 48,
+      "explained_nonblank_lines": 48,
+      "purpose": "orchestrates the repeatable Windows deploy to pynq command-line flow"
+    },
+    {
+      "path": "scripts/export_cifar10_shards.ps1",
+      "sha256": "aece1c0e9f2f8e9e21edbc57ff1a526d527beab878695370443631617525cd6f",
+      "lines": 26,
+      "nonblank_lines": 24,
+      "explained_nonblank_lines": 24,
+      "purpose": "orchestrates the repeatable Windows export cifar10 shards command-line flow"
+    },
+    {
+      "path": "scripts/manage_pynq_training.ps1",
+      "sha256": "0e6bc4a93075f0498e94fa9a4db43635237ca6214649d08554e5e56ad63dbab3",
+      "lines": 64,
+      "nonblank_lines": 59,
+      "explained_nonblank_lines": 59,
+      "purpose": "orchestrates the repeatable Windows manage pynq training command-line flow"
+    },
+    {
+      "path": "scripts/run_mac2_probe.ps1",
+      "sha256": "9f751bdbace1b451bbaed5648464427f4e01ea27fcf69e32d773a2fa4d6b24e1",
+      "lines": 30,
+      "nonblank_lines": 26,
+      "explained_nonblank_lines": 26,
+      "purpose": "orchestrates the repeatable Windows run mac2 probe command-line flow"
+    },
+    {
+      "path": "scripts/run_pynq_full.ps1",
+      "sha256": "80e15c3724ae55e6d1ee30d2d2a63faac530f5b62bb8324110120c10c79f5137",
+      "lines": 69,
+      "nonblank_lines": 63,
+      "explained_nonblank_lines": 63,
+      "purpose": "orchestrates the repeatable Windows run pynq full command-line flow"
+    },
+    {
+      "path": "scripts/run_regression.ps1",
+      "sha256": "25a6edb90368ac503b22ba49d2e36585918de7e332c462121815619c6f9b364f",
+      "lines": 176,
+      "nonblank_lines": 163,
+      "explained_nonblank_lines": 163,
+      "purpose": "orchestrates the repeatable Windows run regression command-line flow"
+    },
+    {
+      "path": "scripts/run_saif_power.ps1",
+      "sha256": "8ce1ac42bdb12e8004b5fa8b1dd11048fa35c6556f21cfcde721324c09dc8836",
+      "lines": 52,
+      "nonblank_lines": 50,
+      "explained_nonblank_lines": 50,
+      "purpose": "orchestrates the repeatable Windows run saif power command-line flow"
+    },
+    {
+      "path": "scripts/run_verilator_lint.ps1",
+      "sha256": "7f97fd96873d7026a27aeaa007758815037d78b44a5de0712c5a666860c87bc0",
+      "lines": 24,
+      "nonblank_lines": 20,
+      "explained_nonblank_lines": 20,
+      "purpose": "orchestrates the repeatable Windows run verilator lint command-line flow"
+    },
+    {
+      "path": "scripts/run_vivado_build.ps1",
+      "sha256": "449dcde27c772ea2d689422c188c4ae911eeb9993f56c82afe48c81f3673e4b7",
+      "lines": 72,
+      "nonblank_lines": 67,
+      "explained_nonblank_lines": 67,
+      "purpose": "orchestrates the repeatable Windows run vivado build command-line flow"
+    },
+    {
+      "path": "scripts/analyze_routed_timing.tcl",
+      "sha256": "73a9f51afa785d4e945fa8c5004caf328b391c6291506a6121bbe66f728c4767",
+      "lines": 9,
+      "nonblank_lines": 8,
+      "explained_nonblank_lines": 8,
+      "purpose": "runs the reproducible Vivado analyze routed timing hardware flow"
+    },
+    {
+      "path": "scripts/annotate_saif_power.tcl",
+      "sha256": "ef222aec96222a3b017b781628eab850f146f1b5864887a56240086b094d741a",
+      "lines": 94,
+      "nonblank_lines": 92,
+      "explained_nonblank_lines": 92,
+      "purpose": "runs the reproducible Vivado annotate saif power hardware flow"
+    },
+    {
+      "path": "scripts/build_pynq_full.tcl",
+      "sha256": "3086bfc4c965cc2d37177ecbff032b1a922183af0246976000fdc056f78f06f9",
+      "lines": 393,
+      "nonblank_lines": 368,
+      "explained_nonblank_lines": 368,
+      "purpose": "runs the reproducible Vivado build pynq full hardware flow"
+    },
+    {
+      "path": "scripts/build_pynq_ooc.tcl",
+      "sha256": "dcb0b711a0cf1b03686cc7e9e363df3e1c4cdae68872774df8c474be8c430a9e",
+      "lines": 66,
+      "nonblank_lines": 62,
+      "explained_nonblank_lines": 62,
+      "purpose": "runs the reproducible Vivado build pynq ooc hardware flow"
+    },
+    {
+      "path": "scripts/capture_power_activity.tcl",
+      "sha256": "01f22d9c0e91bd99e58094836856cdd99c6026fa8915ee611cdae84881a88abf",
+      "lines": 25,
+      "nonblank_lines": 23,
+      "explained_nonblank_lines": 23,
+      "purpose": "runs the reproducible Vivado capture power activity hardware flow"
+    },
+    {
+      "path": "scripts/capture_waveform.tcl",
+      "sha256": "9e7e00d97e3eab87a54331b8f0c905acf41bad1c9a469ea06e75fb39c52d17bb",
+      "lines": 20,
+      "nonblank_lines": 18,
+      "explained_nonblank_lines": 18,
+      "purpose": "runs the reproducible Vivado capture waveform hardware flow"
+    },
+    {
+      "path": "scripts/export_pynq_diagrams.tcl",
+      "sha256": "37859cbddb06426382dc18e9d185f8ebe261126416a2b8005e48cc66d6a70625",
+      "lines": 31,
+      "nonblank_lines": 27,
+      "explained_nonblank_lines": 27,
+      "purpose": "runs the reproducible Vivado export pynq diagrams hardware flow"
+    },
+    {
+      "path": "scripts/finalize_pynq_ooc.tcl",
+      "sha256": "a586a71cab63fa18e4422bd1dc9d444bbfc90c56ed821e5bcf47e77c10a6c551",
+      "lines": 64,
+      "nonblank_lines": 61,
+      "explained_nonblank_lines": 61,
+      "purpose": "runs the reproducible Vivado finalize pynq ooc hardware flow"
+    },
+    {
+      "path": "scripts/report_checkpoint_hierarchy.tcl",
+      "sha256": "3e90e0747ddd5797d61d8fe666c07c071f882a82c105c8e5f1a5e644f21c7313",
+      "lines": 22,
+      "nonblank_lines": 20,
+      "explained_nonblank_lines": 20,
+      "purpose": "runs the reproducible Vivado report checkpoint hierarchy hardware flow"
+    },
+    {
+      "path": "scripts/report_optimizer_dsp.tcl",
+      "sha256": "b52e9d0dd4cfd185f13481fba0bb639f70da54edabaecfdce2e8a211d0b68e01",
+      "lines": 44,
+      "nonblank_lines": 40,
+      "explained_nonblank_lines": 40,
+      "purpose": "runs the reproducible Vivado report optimizer dsp hardware flow"
+    },
+    {
+      "path": "scripts/resume_pynq_ooc.tcl",
+      "sha256": "9f4a9968f0da94190a62c2bed4ca34fc0c4286a346ad93933516928bf3250059",
+      "lines": 22,
+      "nonblank_lines": 20,
+      "explained_nonblank_lines": 20,
+      "purpose": "runs the reproducible Vivado resume pynq ooc hardware flow"
+    },
+    {
+      "path": "scripts/synth_mac2_probe.tcl",
+      "sha256": "076abb2d9f503df62dac46aa98a62f110d43cde5e37d34767144f6815809919b",
+      "lines": 34,
+      "nonblank_lines": 29,
+      "explained_nonblank_lines": 29,
+      "purpose": "runs the reproducible Vivado synth mac2 probe hardware flow"
+    },
+    {
+      "path": "scripts/synth_timing_iteration.tcl",
+      "sha256": "258e0d4cf84dd08d6edbadf97b8c1f934c2b078aa44b3de89bb5ec370471b93e",
+      "lines": 51,
+      "nonblank_lines": 48,
+      "explained_nonblank_lines": 48,
+      "purpose": "runs the reproducible Vivado synth timing iteration hardware flow"
+    }
+  ],
+  "summary": {
+    "file_count": 99,
+    "source_lines": 28915,
+    "nonblank_lines": 26565,
+    "explained_nonblank_lines": 26565
+  }
+}

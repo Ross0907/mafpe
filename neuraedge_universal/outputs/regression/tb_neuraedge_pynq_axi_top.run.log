@@ -1,0 +1,2 @@
+tb_neuraedge_pynq_axi_top PASSED commands=4
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_pynq_axi_top.sv:312: $finish called at 2175000 (1ps)

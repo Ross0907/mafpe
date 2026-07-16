@@ -1,0 +1,29 @@
+{
+  "format": "neuraedge-real-forward-validation-v1",
+  "validated_utc": "2026-07-13T15:48:00Z",
+  "parameter_manifest": "outputs/spikingformer_hardware_parameters/spikingformer_neuraedge_weights.json",
+  "parameter_binary_bytes": 9385704,
+  "parameter_binary_sha256": "b02c5df519eaecffb228f4c8be21babddc01761f26210bb8dfcca3318ed0d381",
+  "dataset_sample": "outputs/cifar10_shards/cifar10_test_000.npz:0",
+  "label": 3,
+  "predicted_class": 3,
+  "elapsed_seconds": 197.46590329999162,
+  "command_count": 1345393,
+  "input_beats": 41408322,
+  "output_beats": 13105354,
+  "logits_accumulator": [
+    -5206,
+    -10659,
+    -4730,
+    48785,
+    -6119,
+    -6033,
+    -4915,
+    -8374,
+    -9237,
+    -11142
+  ],
+  "maximum_absolute_logit_delta_from_archived_10000_image_evaluation": 9.596289141100556e-08,
+  "archived_evaluation_accuracy_percent": 95.42,
+  "result": "PASS"
+}

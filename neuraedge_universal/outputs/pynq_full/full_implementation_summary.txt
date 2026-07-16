@@ -1,0 +1,14 @@
+board_part=tul.com.tw:pynq-z2:part0:1.0
+part=xc7z020clg400-1
+accelerator_clock_mhz=200.0
+dma_clock_mhz=125.0
+control_clock_mhz=100.0
+lut_count=45245
+ff_count=51077
+dsp48_count=110
+bram36_count=33
+bram18_count=8
+setup_wns_ns=0.005
+hold_whs_ns=0.050
+route_error_count=0
+drc_error_count=0

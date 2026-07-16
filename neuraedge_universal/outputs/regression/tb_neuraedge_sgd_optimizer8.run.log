@@ -1,0 +1,2 @@
+tb_neuraedge_sgd_optimizer8 PASSED checked=128 updates=0
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_sgd_optimizer8.sv:149: $finish called at 31025000 (1ps)

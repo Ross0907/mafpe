@@ -1,0 +1,158 @@
+{
+  "format": "neuraedge-xsim-waveforms-v1",
+  "vivado_root": "D:\\AMDDesignTools\\2026.1\\Vivado",
+  "target_part": "xc7z020clg400-1",
+  "target_clock_mhz": 200,
+  "captures": [
+    {
+      "testbench": "tb_neuraedge_mac2_u8",
+      "duration": 2,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_mac2_u8.vcd",
+      "vcd_bytes": 16358,
+      "wdb": "wdb\\tb_neuraedge_mac2_u8.wdb",
+      "wdb_bytes": 18604,
+      "simulation_log": "logs\\tb_neuraedge_mac2_u8.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_tensor_tile",
+      "duration": 3,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_tensor_tile.vcd",
+      "vcd_bytes": 433039,
+      "wdb": "wdb\\tb_neuraedge_tensor_tile.wdb",
+      "wdb_bytes": 483497,
+      "simulation_log": "logs\\tb_neuraedge_tensor_tile.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_buffered_tensor_core",
+      "duration": 4,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_buffered_tensor_core.vcd",
+      "vcd_bytes": 816566,
+      "wdb": "wdb\\tb_neuraedge_buffered_tensor_core.wdb",
+      "wdb_bytes": 819612,
+      "simulation_log": "logs\\tb_neuraedge_buffered_tensor_core.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_alpha_xnor",
+      "duration": 40,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_alpha_xnor.vcd",
+      "vcd_bytes": 497275,
+      "wdb": "wdb\\tb_neuraedge_alpha_xnor.wdb",
+      "wdb_bytes": 319179,
+      "simulation_log": "logs\\tb_neuraedge_alpha_xnor.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_vector_alu",
+      "duration": 170,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_vector_alu.vcd",
+      "vcd_bytes": 3983470,
+      "wdb": "wdb\\tb_neuraedge_vector_alu.wdb",
+      "wdb_bytes": 1275640,
+      "simulation_log": "logs\\tb_neuraedge_vector_alu.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_integer_primitives",
+      "duration": 90,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_integer_primitives.vcd",
+      "vcd_bytes": 2504835,
+      "wdb": "wdb\\tb_neuraedge_integer_primitives.wdb",
+      "wdb_bytes": 754845,
+      "simulation_log": "logs\\tb_neuraedge_integer_primitives.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_normalization_units",
+      "duration": 405,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_normalization_units.vcd",
+      "vcd_bytes": 9463661,
+      "wdb": "wdb\\tb_neuraedge_normalization_units.wdb",
+      "wdb_bytes": 4701007,
+      "simulation_log": "logs\\tb_neuraedge_normalization_units.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_lif_bank",
+      "duration": 20,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_lif_bank.vcd",
+      "vcd_bytes": 800865,
+      "wdb": "wdb\\tb_neuraedge_lif_bank.wdb",
+      "wdb_bytes": 304405,
+      "simulation_log": "logs\\tb_neuraedge_lif_bank.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_linear_backward8",
+      "duration": 1,
+      "unit": "ms",
+      "vcd": "vcd\\tb_neuraedge_linear_backward8.vcd",
+      "vcd_bytes": 5534928,
+      "wdb": "wdb\\tb_neuraedge_linear_backward8.wdb",
+      "wdb_bytes": 4050856,
+      "simulation_log": "logs\\tb_neuraedge_linear_backward8.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_sgd_optimizer8",
+      "duration": 20,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_sgd_optimizer8.vcd",
+      "vcd_bytes": 425735,
+      "wdb": "wdb\\tb_neuraedge_sgd_optimizer8.wdb",
+      "wdb_bytes": 731879,
+      "simulation_log": "logs\\tb_neuraedge_sgd_optimizer8.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_activation_lut8",
+      "duration": 20,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_activation_lut8.vcd",
+      "vcd_bytes": 134419,
+      "wdb": "wdb\\tb_neuraedge_activation_lut8.wdb",
+      "wdb_bytes": 124951,
+      "simulation_log": "logs\\tb_neuraedge_activation_lut8.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_universal_core",
+      "duration": 50,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_universal_core.vcd",
+      "vcd_bytes": 564587,
+      "wdb": "wdb\\tb_neuraedge_universal_core.wdb",
+      "wdb_bytes": 1333358,
+      "simulation_log": "logs\\tb_neuraedge_universal_core.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_descriptor_sequencer",
+      "duration": 2,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_descriptor_sequencer.vcd",
+      "vcd_bytes": 8275,
+      "wdb": "wdb\\tb_neuraedge_descriptor_sequencer.wdb",
+      "wdb_bytes": 33003,
+      "simulation_log": "logs\\tb_neuraedge_descriptor_sequencer.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_pynq_descriptor",
+      "duration": 2,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_pynq_descriptor.vcd",
+      "vcd_bytes": 160115,
+      "wdb": "wdb\\tb_neuraedge_pynq_descriptor.wdb",
+      "wdb_bytes": 839492,
+      "simulation_log": "logs\\tb_neuraedge_pynq_descriptor.simulate.log"
+    },
+    {
+      "testbench": "tb_neuraedge_pynq_axi_top",
+      "duration": 5,
+      "unit": "us",
+      "vcd": "vcd\\tb_neuraedge_pynq_axi_top.vcd",
+      "vcd_bytes": 232982,
+      "wdb": "wdb\\tb_neuraedge_pynq_axi_top.wdb",
+      "wdb_bytes": 890081,
+      "simulation_log": "logs\\tb_neuraedge_pynq_axi_top.simulate.log"
+    }
+  ]
+}

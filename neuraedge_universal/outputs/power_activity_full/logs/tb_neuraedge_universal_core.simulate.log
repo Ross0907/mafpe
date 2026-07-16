@@ -1,0 +1,39 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Thu Jul 16 15:38:08 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_neuraedge_universal_core_power_snapshot/xsim_script.tcl
+# xsim {tb_neuraedge_universal_core_power_snapshot} -autoloadwcfg -tclbatch {C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/scripts/capture_power_activity.tcl} -onfinish quit -onerror quit
+Time resolution is 1 ps
+source C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/scripts/capture_power_activity.tcl
+## foreach required_variable {
+##     NEURAEDGE_SAIF_PATH
+##     NEURAEDGE_SAIF_SCOPE
+##     NEURAEDGE_SAIF_AMOUNT
+##     NEURAEDGE_SAIF_UNIT
+## } {
+##     if {![info exists ::env($required_variable)]} {
+##         error "$required_variable is required"
+##     }
+## }
+## set saif_path [file normalize $::env(NEURAEDGE_SAIF_PATH)]
+## set saif_scope $::env(NEURAEDGE_SAIF_SCOPE)
+## set run_amount $::env(NEURAEDGE_SAIF_AMOUNT)
+## set run_unit $::env(NEURAEDGE_SAIF_UNIT)
+## set activity_objects [get_objects -r "${saif_scope}/*"]
+## if {[llength $activity_objects] == 0} {
+##     error "No simulation objects matched SAIF scope $saif_scope"
+## }
+## open_saif $saif_path
+## log_saif $activity_objects
+## run $run_amount $run_unit
+tb_neuraedge_universal_core PASSED commands=15 input_beats=88 output_beats=61
+$finish called at time : 8420 ns : File "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/tb/tb_neuraedge_universal_core.sv" Line 503
+exit 0
+INFO: xsimkernel Simulation Memory Usage: 140560 KB (Peak: 140560 KB), Simulation CPU Usage: 249 ms
+INFO: [Common 17-206] Exiting xsim at Thu Jul 16 15:38:13 2026...
