@@ -1,0 +1,6 @@
+buffered_case=0 mode=0 results=128 active=16/19 input_beats=57 compute_cycles=206
+buffered_case=1 mode=1 results=13 active=2/3 input_beats=51 compute_cycles=55
+buffered_case=2 mode=2 results=55 active=15/17 input_beats=51 compute_cycles=106
+buffered_case=3 mode=3 results=63 active=13/15 input_beats=45 compute_cycles=116
+tb_neuraedge_buffered_tensor_core PASSED cases=4 checked=259
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_buffered_tensor_core.sv:417: $finish called at 4010000 (1ps)

@@ -1,0 +1,710 @@
+{
+  "format": "neuraedge-spikingformer-training-coverage-v1",
+  "execution_manifest": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\spikingformer_reference\\spikingformer_execution_manifest.json",
+  "parameter_manifest": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\spikingformer_hardware_parameters\\spikingformer_neuraedge_weights.json",
+  "training_semantics": {
+    "target_graph": "complete exported integer inference graph",
+    "quantizer_gradient": "straight-through estimator with fixed exported scales",
+    "lif_gradient": "SpikingJelly sigmoid surrogate alpha=4, hard reset, detach_reset=True",
+    "temporal_method": "four-step BPTT in reverse timestep order through cached membrane traces",
+    "optimizer": "signed fixed-point SGDW with momentum; weight decay is applied to the update direction and excluded from retained velocity",
+    "parameter_residency": "PYNQ DDR master tensors; arithmetic and updates in programmable logic"
+  },
+  "summary": {
+    "execution_operator_count": 43,
+    "covered_execution_operator_count": 43,
+    "learned_affine_group_count": 30,
+    "backbone_projection_count": 29,
+    "dynamic_attention_matmul_count": 8,
+    "lif_node_count": 32,
+    "maxpool_backward_count": 2,
+    "residual_gradient_fanout_count": 8,
+    "trainable_deployed_parameter_elements": 9295978,
+    "sgdw_update_commands": 1161998,
+    "learned_backward_partial_tiles": 14546116,
+    "dynamic_backward_partial_tiles": 196608,
+    "total_backward_partial_tiles": 14742724,
+    "learned_backward_multiplications": 7374183956,
+    "dynamic_backward_multiplications": 100663296,
+    "full_deployed_backbone_covered": true,
+    "uncovered_operator_count": 0
+  },
+  "learned_affine_coverage": [
+    {
+      "name": "patch_embed.block0",
+      "rows": 1024,
+      "inputs": 27,
+      "outputs": 48,
+      "repetitions": 1,
+      "weight_elements": 1296,
+      "bias_elements": 48,
+      "trainable_deployed_elements": 1344,
+      "backward_partial_tiles": 6144,
+      "backward_multiplications": 2752512,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "patch_embed.block1",
+      "rows": 4096,
+      "inputs": 432,
+      "outputs": 96,
+      "repetitions": 1,
+      "weight_elements": 41472,
+      "bias_elements": 96,
+      "trainable_deployed_elements": 41568,
+      "backward_partial_tiles": 675840,
+      "backward_multiplications": 340525056,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "patch_embed.block2",
+      "rows": 4096,
+      "inputs": 864,
+      "outputs": 192,
+      "repetitions": 1,
+      "weight_elements": 165888,
+      "bias_elements": 192,
+      "trainable_deployed_elements": 166080,
+      "backward_partial_tiles": 2678784,
+      "backward_multiplications": 1360527360,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "patch_embed.block3",
+      "rows": 1024,
+      "inputs": 1728,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 663552,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 663936,
+      "backward_partial_tiles": 2666496,
+      "backward_multiplications": 1359740928,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "patch_embed.block4",
+      "rows": 256,
+      "inputs": 3456,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 1327104,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 1327488,
+      "backward_partial_tiles": 1330176,
+      "backward_multiplications": 679673856,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.0.attn.q",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.0.attn.k",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.0.attn.v",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.0.attn.proj",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.0.mlp.fc1",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 1536,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 1536,
+      "trainable_deployed_elements": 591360,
+      "backward_partial_tiles": 602112,
+      "backward_multiplications": 302776320,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.0.mlp.fc2",
+      "rows": 256,
+      "inputs": 1536,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 590208,
+      "backward_partial_tiles": 592896,
+      "backward_multiplications": 302186496,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.1.attn.q",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.1.attn.k",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.1.attn.v",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.1.attn.proj",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.1.mlp.fc1",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 1536,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 1536,
+      "trainable_deployed_elements": 591360,
+      "backward_partial_tiles": 602112,
+      "backward_multiplications": 302776320,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.1.mlp.fc2",
+      "rows": 256,
+      "inputs": 1536,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 590208,
+      "backward_partial_tiles": 592896,
+      "backward_multiplications": 302186496,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.2.attn.q",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.2.attn.k",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.2.attn.v",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.2.attn.proj",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.2.mlp.fc1",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 1536,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 1536,
+      "trainable_deployed_elements": 591360,
+      "backward_partial_tiles": 602112,
+      "backward_multiplications": 302776320,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.2.mlp.fc2",
+      "rows": 256,
+      "inputs": 1536,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 590208,
+      "backward_partial_tiles": 592896,
+      "backward_multiplications": 302186496,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.3.attn.q",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.3.attn.k",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.3.attn.v",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.3.attn.proj",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 147456,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 147840,
+      "backward_partial_tiles": 150528,
+      "backward_multiplications": 75694080,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.3.mlp.fc1",
+      "rows": 256,
+      "inputs": 384,
+      "outputs": 1536,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 1536,
+      "trainable_deployed_elements": 591360,
+      "backward_partial_tiles": 602112,
+      "backward_multiplications": 302776320,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "block.3.mlp.fc2",
+      "rows": 256,
+      "inputs": 1536,
+      "outputs": 384,
+      "repetitions": 1,
+      "weight_elements": 589824,
+      "bias_elements": 384,
+      "trainable_deployed_elements": 590208,
+      "backward_partial_tiles": 592896,
+      "backward_multiplications": 302186496,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    },
+    {
+      "name": "head",
+      "rows": 1,
+      "inputs": 384,
+      "outputs": 10,
+      "repetitions": 1,
+      "weight_elements": 3840,
+      "bias_elements": 10,
+      "trainable_deployed_elements": 3850,
+      "backward_partial_tiles": 196,
+      "backward_multiplications": 7700,
+      "gradient_method": "47-bit raw accumulation for dX/dW; homogeneous bias row",
+      "update_method": "eight-lane signed fixed-point SGDW in programmable logic"
+    }
+  ],
+  "dynamic_attention_coverage": [
+    {
+      "name": "block.0.attn.qk",
+      "rows": 64,
+      "inputs": 32,
+      "outputs": 64,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.0.attn.av",
+      "rows": 64,
+      "inputs": 64,
+      "outputs": 32,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.1.attn.qk",
+      "rows": 64,
+      "inputs": 32,
+      "outputs": 64,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.1.attn.av",
+      "rows": 64,
+      "inputs": 64,
+      "outputs": 32,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.2.attn.qk",
+      "rows": 64,
+      "inputs": 32,
+      "outputs": 64,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.2.attn.av",
+      "rows": 64,
+      "inputs": 64,
+      "outputs": 32,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.3.attn.qk",
+      "rows": 64,
+      "inputs": 32,
+      "outputs": 64,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    },
+    {
+      "name": "block.3.attn.av",
+      "rows": 64,
+      "inputs": 64,
+      "outputs": 32,
+      "repetitions": 48,
+      "backward_partial_tiles": 24576,
+      "backward_multiplications": 12582912,
+      "gradient_method": "two signed raw-accumulator matrix passes"
+    }
+  ],
+  "operator_coverage": [
+    {
+      "name": "patch_embed.block0",
+      "backward_method": "affine dX/dW/dB plus SGDW"
+    },
+    {
+      "name": "patch_embed.block1",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "patch_embed.block2",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "patch_embed.block3",
+      "backward_method": "affine dX/dW/dB plus SGDW; first-winner max-pool backward and fabric scatter-add; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "patch_embed.block4",
+      "backward_method": "affine dX/dW/dB plus SGDW; first-winner max-pool backward and fabric scatter-add; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.attn.q",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.attn.k",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.attn.v",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.attn.qk",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.0.attn.av",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.0.attn.proj",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.mlp.fc1",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.mlp.fc2",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.0.residuals",
+      "backward_method": "identity gradient fan-out; converging branches use saturating vector add"
+    },
+    {
+      "name": "block.1.attn.q",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.1.attn.k",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.1.attn.v",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.1.attn.qk",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.1.attn.av",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.1.attn.proj",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.1.mlp.fc1",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.1.mlp.fc2",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.1.residuals",
+      "backward_method": "identity gradient fan-out; converging branches use saturating vector add"
+    },
+    {
+      "name": "block.2.attn.q",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.2.attn.k",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.2.attn.v",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.2.attn.qk",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.2.attn.av",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.2.attn.proj",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.2.mlp.fc1",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.2.mlp.fc2",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.2.residuals",
+      "backward_method": "identity gradient fan-out; converging branches use saturating vector add"
+    },
+    {
+      "name": "block.3.attn.q",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.3.attn.k",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.3.attn.v",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.3.attn.qk",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.3.attn.av",
+      "backward_method": "dynamic matrix dX/dW; 0.125 attention gradient uses Q15 multiply"
+    },
+    {
+      "name": "block.3.attn.proj",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.3.mlp.fc1",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.3.mlp.fc2",
+      "backward_method": "affine dX/dW/dB plus SGDW; traced sigmoid-surrogate hard-LIF BPTT"
+    },
+    {
+      "name": "block.3.residuals",
+      "backward_method": "identity gradient fan-out; converging branches use saturating vector add"
+    },
+    {
+      "name": "global_average_pool",
+      "backward_method": "gradient broadcast with exact power-of-two division by 256"
+    },
+    {
+      "name": "head",
+      "backward_method": "affine dX/dW/dB plus SGDW"
+    }
+  ]
+}

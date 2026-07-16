@@ -1,0 +1,125 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Tue Jul 14 13:43:27 2026
+| Host         : Ross-Laptop running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/outputs/pynq_ooc/routed_utilization_hierarchical.rpt
+| Design       : neuraedge_pynq_axi_top
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------------------------------------+----------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|                  Instance                  |                 Module                 | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++--------------------------------------------+----------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| neuraedge_pynq_axi_top                     |                                  (top) |      35250 |      34202 |    1048 |    0 | 45380 |     25 |      6 |        110 |
+|   (neuraedge_pynq_axi_top)                 |                                  (top) |        106 |        106 |       0 |    0 |   977 |      0 |      0 |          0 |
+|   u_core                                   |               neuraedge_universal_core |      34518 |      33470 |    1048 |    0 | 43928 |     25 |      6 |        110 |
+|     (u_core)                               |               neuraedge_universal_core |        392 |        392 |       0 |    0 |  3761 |      0 |      0 |          0 |
+|     u_activation_lut                       |              neuraedge_activation_lut8 |       1899 |       1195 |     704 |    0 |  1034 |      0 |      0 |          0 |
+|     u_alpha_xnor                           |                   neuraedge_alpha_xnor |        555 |        555 |       0 |    0 |   815 |      0 |      0 |          1 |
+|     u_layernorm                            |            neuraedge_integer_layernorm |       1462 |       1462 |       0 |    0 |  1678 |      4 |      4 |          8 |
+|       (u_layernorm)                        |            neuraedge_integer_layernorm |       1020 |       1020 |       0 |    0 |  1239 |      4 |      4 |          8 |
+|       u_divider                            |                     neuraedge_udivider |        330 |        330 |       0 |    0 |   270 |      0 |      0 |          0 |
+|       u_sqrt                               |                      neuraedge_isqrt64 |        113 |        113 |       0 |    0 |   169 |      0 |      0 |          0 |
+|     u_lif_bank                             |                     neuraedge_lif_bank |       2128 |       2128 |       0 |    0 |  3420 |      0 |      0 |          0 |
+|     u_linear_backward                      |             neuraedge_linear_backward8 |       6250 |       6062 |     188 |    0 |  5240 |      0 |      0 |         16 |
+|       (u_linear_backward)                  |             neuraedge_linear_backward8 |       5863 |       5863 |       0 |    0 |  5240 |      0 |      0 |         16 |
+|       g_accumulator_bank[0].u_bank         |    neuraedge_gradient_accumulator_bank |        100 |         53 |      47 |    0 |     0 |      0 |      0 |          0 |
+|       g_accumulator_bank[1].u_bank         | neuraedge_gradient_accumulator_bank_70 |        135 |         88 |      47 |    0 |     0 |      0 |      0 |          0 |
+|       g_accumulator_bank[2].u_bank         | neuraedge_gradient_accumulator_bank_71 |        103 |         56 |      47 |    0 |     0 |      0 |      0 |          0 |
+|       g_accumulator_bank[3].u_bank         | neuraedge_gradient_accumulator_bank_72 |        133 |         86 |      47 |    0 |     0 |      0 |      0 |          0 |
+|     u_optimizer                            |               neuraedge_sgd_optimizer8 |       3257 |       3257 |       0 |    0 |  3815 |      0 |      0 |          8 |
+|     u_softmax                              |                  neuraedge_log_softmax |        490 |        490 |       0 |    0 |   450 |      0 |      2 |          2 |
+|       (u_softmax)                          |                  neuraedge_log_softmax |        315 |        315 |       0 |    0 |   284 |      0 |      2 |          2 |
+|       u_divider                            |     neuraedge_udivider__parameterized0 |        176 |        176 |       0 |    0 |   166 |      0 |      0 |          0 |
+|     u_tensor_core                          |         neuraedge_buffered_tensor_core |      16708 |      16552 |     156 |    0 | 21987 |     21 |      0 |         71 |
+|       (u_tensor_core)                      |         neuraedge_buffered_tensor_core |        526 |        526 |       0 |    0 |  4402 |      0 |      0 |          0 |
+|       g_weight_bank[0].u_weight_bank       |                  neuraedge_weight_bank |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[1].u_weight_bank       |                neuraedge_weight_bank_0 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[2].u_weight_bank       |                neuraedge_weight_bank_1 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[3].u_weight_bank       |                neuraedge_weight_bank_2 |        257 |        257 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[4].u_weight_bank       |                neuraedge_weight_bank_3 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[5].u_weight_bank       |                neuraedge_weight_bank_4 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[6].u_weight_bank       |                neuraedge_weight_bank_5 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       g_weight_bank[7].u_weight_bank       |                neuraedge_weight_bank_6 |        198 |        198 |       0 |    0 |     0 |      2 |      0 |          0 |
+|       u_tensor_tile                        |                  neuraedge_tensor_tile |      15298 |      15142 |     156 |    0 | 17585 |      0 |      0 |         71 |
+|         (u_tensor_tile)                    |                  neuraedge_tensor_tile |      11294 |      11138 |     156 |    0 | 15345 |      0 |      0 |          7 |
+|         g_mac_lane[0].g_mac_pair[0].u_mac2 |                      neuraedge_mac2_u8 |         86 |         86 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[1].u_mac2 |                    neuraedge_mac2_u8_7 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[2].u_mac2 |                    neuraedge_mac2_u8_8 |         86 |         86 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[3].u_mac2 |                    neuraedge_mac2_u8_9 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_10 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_11 |         86 |         86 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_12 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[0].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_13 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_14 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[1].u_mac2 |                   neuraedge_mac2_u8_15 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[2].u_mac2 |                   neuraedge_mac2_u8_16 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_17 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_18 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_19 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_20 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[1].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_21 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_22 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[1].u_mac2 |                   neuraedge_mac2_u8_23 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[2].u_mac2 |                   neuraedge_mac2_u8_24 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_25 |         84 |         84 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_26 |         84 |         84 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_27 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_28 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[2].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_29 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_30 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[1].u_mac2 |                   neuraedge_mac2_u8_31 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[2].u_mac2 |                   neuraedge_mac2_u8_32 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_33 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_34 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_35 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_36 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[3].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_37 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_38 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[1].u_mac2 |                   neuraedge_mac2_u8_39 |         78 |         78 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[2].u_mac2 |                   neuraedge_mac2_u8_40 |         82 |         82 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_41 |         78 |         78 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_42 |         82 |         82 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_43 |         78 |         78 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_44 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[4].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_45 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[5].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_46 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[5].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_49 |         48 |         48 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[5].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_50 |         49 |         49 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[5].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_51 |         45 |         45 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[5].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_52 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[5].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_53 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_54 |         86 |         86 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[1].u_mac2 |                   neuraedge_mac2_u8_55 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[2].u_mac2 |                   neuraedge_mac2_u8_56 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_57 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_58 |         86 |         86 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_59 |         85 |         85 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_60 |         84 |         84 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[6].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_61 |         87 |         87 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[0].u_mac2 |                   neuraedge_mac2_u8_62 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[1].u_mac2 |                   neuraedge_mac2_u8_63 |         55 |         55 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[2].u_mac2 |                   neuraedge_mac2_u8_64 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[3].u_mac2 |                   neuraedge_mac2_u8_65 |         55 |         55 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[4].u_mac2 |                   neuraedge_mac2_u8_66 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[5].u_mac2 |                   neuraedge_mac2_u8_67 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[6].u_mac2 |                   neuraedge_mac2_u8_68 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|         g_mac_lane[7].g_mac_pair[7].u_mac2 |                   neuraedge_mac2_u8_69 |         54 |         54 |       0 |    0 |    35 |      0 |      0 |          1 |
+|     u_vector_alu                           |                   neuraedge_vector_alu |       1388 |       1388 |       0 |    0 |  1728 |      0 |      0 |          4 |
+|   u_descriptor_sequencer                   |         neuraedge_descriptor_sequencer |        629 |        629 |       0 |    0 |   475 |      0 |      0 |          0 |
++--------------------------------------------+----------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

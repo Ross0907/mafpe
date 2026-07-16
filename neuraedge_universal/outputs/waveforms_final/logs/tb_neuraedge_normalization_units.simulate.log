@@ -1,0 +1,63 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Jul 14 14:59:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_neuraedge_normalization_units_wave_snapshot/xsim_script.tcl
+# xsim {tb_neuraedge_normalization_units_wave_snapshot} -wdb {C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\neuraedge_universal\outputs\waveforms_final\wdb\tb_neuraedge_normalization_units.wdb} -autoloadwcfg -tclbatch {C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/scripts/capture_waveform.tcl} -onfinish quit -onerror quit
+Time resolution is 1 ps
+source C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/scripts/capture_waveform.tcl
+## if {![info exists ::env(NEURAEDGE_VCD_PATH)]} {
+##     error "NEURAEDGE_VCD_PATH is required"
+## }
+## if {![info exists ::env(NEURAEDGE_WAVE_AMOUNT)]} {
+##     error "NEURAEDGE_WAVE_AMOUNT is required"
+## }
+## if {![info exists ::env(NEURAEDGE_WAVE_UNIT)]} {
+##     error "NEURAEDGE_WAVE_UNIT is required"
+## }
+## set vcd_path [file normalize $::env(NEURAEDGE_VCD_PATH)]
+## set run_amount $::env(NEURAEDGE_WAVE_AMOUNT)
+## set run_unit $::env(NEURAEDGE_WAVE_UNIT)
+## open_vcd $vcd_path
+## log_vcd [get_objects -r /*]
+INFO: HDL object /tb_neuraedge_normalization_units/ln_case_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/ln_value_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/ln_gamma_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/ln_beta_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/ln_expected_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/ln_debug_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/sm_case_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/sm_score_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/sm_expected_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/sm_debug_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/u_layernorm/value_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/u_layernorm/gamma_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/u_layernorm/beta_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/u_softmax/score_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_normalization_units/u_softmax/exponent_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+## log_wave -r /*
+## run $run_amount $run_unit
+layernorm_case=0 features=1 cycles=466
+layernorm_case=1 features=4 cycles=562
+layernorm_case=2 features=7 cycles=658
+layernorm_case=3 features=32 cycles=1458
+layernorm_case=4 features=64 cycles=2483
+layernorm_case=5 features=127 cycles=4499
+layernorm_case=6 features=384 cycles=12723
+layernorm_case=7 features=1536 cycles=49586
+softmax_case=0 items=1 cycles=83
+softmax_case=1 items=4 cycles=129
+softmax_case=2 items=7 cycles=176
+softmax_case=3 items=32 cycles=563
+softmax_case=4 items=64 cycles=1059
+softmax_case=5 items=127 cycles=2036
+softmax_case=6 items=256 cycles=4036
+tb_neuraedge_normalization_units PASSED layernorm=2155 softmax=491
+$finish called at time : 402760 ns : File "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/tb/tb_neuraedge_normalization_units.sv" Line 281
+exit 0
+INFO: [Common 17-206] Exiting xsim at Tue Jul 14 14:59:43 2026...

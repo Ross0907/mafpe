@@ -1,0 +1,11 @@
+{
+  "seed": 20260711,
+  "vector_cases": 312,
+  "vector_cases_per_operation": 24,
+  "optimizer_cases": 128,
+  "layernorm_cases": 8,
+  "layernorm_samples": 2155,
+  "softmax_cases": 7,
+  "softmax_samples": 491,
+  "rounding": "nearest, ties away from zero"
+}

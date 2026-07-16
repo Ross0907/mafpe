@@ -1,0 +1,2 @@
+tb_neuraedge_pynq_descriptor PASSED records=1
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_pynq_descriptor.sv:147: $finish called at 255000 (1ps)

@@ -1,0 +1,2 @@
+tb_neuraedge_mac2_u8 PASSED checks=131072 errors=0
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_mac2_u8.sv:98: $finish called at 3932226000 (1ps)

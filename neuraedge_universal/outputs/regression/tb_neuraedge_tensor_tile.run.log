@@ -1,0 +1,6 @@
+case=0 mode=0 rows=8 columns=16 issues=19 skips=3 dense_macs=2048 spike_adds=0
+case=1 mode=1 rows=1 columns=13 issues=3 skips=1 dense_macs=208 spike_adds=0
+case=2 mode=2 rows=5 columns=11 issues=17 skips=2 dense_macs=0 spike_adds=429
+case=3 mode=3 rows=7 columns=9 issues=15 skips=2 dense_macs=0 spike_adds=594
+tb_neuraedge_tensor_tile PASSED cases=4 checked=259
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_tensor_tile.sv:302: $finish called at 3105000 (1ps)

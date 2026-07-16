@@ -1,0 +1,117 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Mon Jul 13 21:21:58 2026
+| Host         : Ross-Laptop running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 8 -file C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/outputs/pynq_full/hierarchical_utilization.rpt
+| Design       : system_accelerator_0
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------------------------------+---------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|                   Instance                   |                          Module                         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++----------------------------------------------+---------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| system_accelerator_0                         |                                                   (top) |      49323 |      48619 |     704 |    0 | 52701 |     25 |      6 |        158 |
+|   (system_accelerator_0)                     |                                                   (top) |          0 |          0 |       0 |    0 |     0 |      0 |      0 |          0 |
+|   inst                                       |             system_accelerator_0_neuraedge_pynq_axi_top |      49323 |      48619 |     704 |    0 | 52701 |     25 |      6 |        158 |
+|     (inst)                                   |             system_accelerator_0_neuraedge_pynq_axi_top |        158 |        158 |       0 |    0 |   975 |      0 |      0 |          0 |
+|     u_core                                   |           system_accelerator_0_neuraedge_universal_core |      48565 |      47861 |     704 |    0 | 51253 |     25 |      6 |        158 |
+|       (u_core)                               |           system_accelerator_0_neuraedge_universal_core |        399 |        399 |       0 |    0 |  3248 |      0 |      0 |          0 |
+|       u_activation_lut                       |          system_accelerator_0_neuraedge_activation_lut8 |       1927 |       1223 |     704 |    0 |  1034 |      0 |      0 |          0 |
+|       u_alpha_xnor                           |               system_accelerator_0_neuraedge_alpha_xnor |        569 |        569 |       0 |    0 |   814 |      0 |      0 |          1 |
+|       u_layernorm                            |        system_accelerator_0_neuraedge_integer_layernorm |       1459 |       1459 |       0 |    0 |  1677 |      4 |      4 |          8 |
+|         (u_layernorm)                        |        system_accelerator_0_neuraedge_integer_layernorm |       1033 |       1033 |       0 |    0 |  1238 |      4 |      4 |          8 |
+|         u_divider                            |                 system_accelerator_0_neuraedge_udivider |        312 |        312 |       0 |    0 |   270 |      0 |      0 |          0 |
+|         u_sqrt                               |                  system_accelerator_0_neuraedge_isqrt64 |        114 |        114 |       0 |    0 |   169 |      0 |      0 |          0 |
+|       u_lif_bank                             |                 system_accelerator_0_neuraedge_lif_bank |       2208 |       2208 |       0 |    0 |  3430 |      0 |      0 |          0 |
+|       u_linear_backward                      |         system_accelerator_0_neuraedge_linear_backward8 |      19995 |      19995 |       0 |    0 | 13530 |      0 |      0 |         64 |
+|       u_optimizer                            |           system_accelerator_0_neuraedge_sgd_optimizer8 |       4037 |       4037 |       0 |    0 |  3605 |      0 |      0 |          8 |
+|       u_softmax                              |              system_accelerator_0_neuraedge_log_softmax |        502 |        502 |       0 |    0 |   450 |      0 |      2 |          2 |
+|         (u_softmax)                          |              system_accelerator_0_neuraedge_log_softmax |        325 |        325 |       0 |    0 |   284 |      0 |      2 |          2 |
+|         u_divider                            | system_accelerator_0_neuraedge_udivider__parameterized0 |        177 |        177 |       0 |    0 |   166 |      0 |      0 |          0 |
+|       u_tensor_core                          |     system_accelerator_0_neuraedge_buffered_tensor_core |      16057 |      16057 |       0 |    0 | 21739 |     21 |      0 |         71 |
+|         (u_tensor_core)                      |     system_accelerator_0_neuraedge_buffered_tensor_core |        433 |        433 |       0 |    0 |  4228 |      0 |      0 |          0 |
+|         g_weight_bank[0].u_weight_bank       |              system_accelerator_0_neuraedge_weight_bank |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[1].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_0 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[2].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_1 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[3].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_2 |        257 |        257 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[4].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_3 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[5].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_4 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[6].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_5 |         65 |         65 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         g_weight_bank[7].u_weight_bank       |            system_accelerator_0_neuraedge_weight_bank_6 |        201 |        201 |       0 |    0 |     0 |      2 |      0 |          0 |
+|         u_tensor_tile                        |              system_accelerator_0_neuraedge_tensor_tile |      14734 |      14734 |       0 |    0 | 17511 |      0 |      0 |         71 |
+|           (u_tensor_tile)                    |              system_accelerator_0_neuraedge_tensor_tile |      10182 |      10182 |       0 |    0 | 15271 |      0 |      0 |          7 |
+|           g_mac_lane[0].g_mac_pair[0].u_mac2 |                  system_accelerator_0_neuraedge_mac2_u8 |         90 |         90 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[1].u_mac2 |                system_accelerator_0_neuraedge_mac2_u8_7 |         90 |         90 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[2].u_mac2 |                system_accelerator_0_neuraedge_mac2_u8_8 |         89 |         89 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[3].u_mac2 |                system_accelerator_0_neuraedge_mac2_u8_9 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[4].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_10 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_11 |         89 |         89 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_12 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[0].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_13 |         90 |         90 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[1].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_15 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[1].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_17 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[1].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_19 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[1].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_20 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[1].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_21 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[0].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_22 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_23 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[2].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_24 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_25 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[4].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_26 |         89 |         89 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_27 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_28 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[2].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_29 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[3].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_31 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[3].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_33 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[3].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_35 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[3].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_36 |         53 |         53 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[3].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_37 |         52 |         52 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[0].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_38 |         89 |         89 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_39 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[2].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_40 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_41 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[4].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_42 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_43 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_44 |         89 |         89 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[4].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_45 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[0].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_46 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_47 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[2].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_48 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_49 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[4].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_50 |         57 |         57 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_51 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_52 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[5].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_53 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[0].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_54 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_55 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[2].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_56 |         89 |         89 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_57 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[4].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_58 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_59 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_60 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[6].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_61 |         88 |         88 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[0].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_62 |         57 |         57 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[1].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_63 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[2].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_64 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[3].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_65 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[4].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_66 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[5].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_67 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[6].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_68 |         56 |         56 |       0 |    0 |    35 |      0 |      0 |          1 |
+|           g_mac_lane[7].g_mac_pair[7].u_mac2 |               system_accelerator_0_neuraedge_mac2_u8_69 |         58 |         58 |       0 |    0 |    35 |      0 |      0 |          1 |
+|       u_vector_alu                           |               system_accelerator_0_neuraedge_vector_alu |       1412 |       1412 |       0 |    0 |  1726 |      0 |      0 |          4 |
+|     u_descriptor_sequencer                   |     system_accelerator_0_neuraedge_descriptor_sequencer |        600 |        600 |       0 |    0 |   473 |      0 |      0 |          0 |
++----------------------------------------------+---------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+
+

@@ -1,0 +1,21 @@
+{
+  "format": "neuraedge-compiler-memory-benchmark-v1",
+  "completed_utc": "2026-07-13T01:23:30.236341+00:00",
+  "python": "3.10.11",
+  "numpy": "1.25.2",
+  "manifest": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\spikingformer_hardware_parameters\\spikingformer_neuraedge_weights.json",
+  "projection": "patch_embed.block3",
+  "shape": [
+    1024,
+    1728,
+    384
+  ],
+  "instructions": 6168,
+  "payload_input_bytes": 43130880,
+  "descriptor_bytes": 148032,
+  "dma_input_bytes": 43278912,
+  "dma_output_bytes": 3145728,
+  "compile_seconds": 0.33430090000183554,
+  "tracemalloc_current_bytes": 50009894,
+  "tracemalloc_peak_bytes": 73981487
+}

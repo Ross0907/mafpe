@@ -1,0 +1,48 @@
+{
+  "seed": "0x4E455552",
+  "case_count": 4,
+  "issue_count": 54,
+  "result_count": 259,
+  "cases": [
+    {
+      "name": "dense_outer_8x16x19",
+      "mode": "DENSE_OUTER",
+      "rows": 8,
+      "columns": 16,
+      "issues": 19,
+      "activation_zero_point": 117,
+      "weight_zero_point": 139,
+      "skipped_zero_issues": 3
+    },
+    {
+      "name": "dense_dot8_1x13x24",
+      "mode": "DENSE_DOT8",
+      "rows": 1,
+      "columns": 13,
+      "issues": 3,
+      "activation_zero_point": 128,
+      "weight_zero_point": 128,
+      "skipped_zero_issues": 1
+    },
+    {
+      "name": "binary_weighted_5x11x17",
+      "mode": "BINARY_WEIGHTED",
+      "rows": 5,
+      "columns": 11,
+      "issues": 17,
+      "activation_zero_point": 0,
+      "weight_zero_point": 0,
+      "skipped_zero_issues": 2
+    },
+    {
+      "name": "ternary_weighted_7x9x15",
+      "mode": "TERNARY_WEIGHTED",
+      "rows": 7,
+      "columns": 9,
+      "issues": 15,
+      "activation_zero_point": 0,
+      "weight_zero_point": 0,
+      "skipped_zero_issues": 2
+    }
+  ]
+}

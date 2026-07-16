@@ -1,0 +1,2182 @@
+{
+  "format": "neuraedge-spikingformer-execution-manifest-v1",
+  "checkpoint": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\cifar10_neuromorphic\\outputs_upstream_spikingformer\\spikingformer_4_384_400e\\model_best.pth.tar",
+  "checkpoint_epoch": 366,
+  "checkpoint_metric_percent": 95.48,
+  "model": {
+    "time_steps": 4,
+    "embed_dim": 384,
+    "heads": 12,
+    "head_dim": 32,
+    "transformer_blocks": 4,
+    "tokens": 64,
+    "classes": 10,
+    "trainable_parameter_elements": 9326266,
+    "source_parameter_bytes_fp32": 37305064,
+    "mapped_int8_weight_bytes": 9281040,
+    "mapped_int32_folded_bias_bytes": 59752
+  },
+  "accelerator": {
+    "row_tile": 8,
+    "column_tile": 16,
+    "maximum_reduction_per_command": 2048,
+    "packed_u8_macs_per_cycle": 128,
+    "target_clock_hz": 200000000,
+    "peak_dense_gmac_per_second": 25.6
+  },
+  "per_image_totals": {
+    "mac_equivalents_after_exact_temporal_hoist": 3732164352,
+    "tensor_commands": 104256,
+    "input_stream_bytes_without_inter_layer_spill": 243330192,
+    "output_stream_bytes_without_inter_layer_spill": 52297808
+  },
+  "operators": [
+    {
+      "name": "patch_embed.block0",
+      "source_operation": "Conv2d 3x3 + folded BatchNorm",
+      "input_shape_per_image": [
+        3,
+        32,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        48,
+        32,
+        32
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 1024,
+        "reduction": 27,
+        "columns": 48,
+        "repetitions": 1,
+        "arithmetic": "u8_mac",
+        "mac_equivalents": 1327104,
+        "reduction_chunks": 1,
+        "compute_tiles": 384,
+        "commands": 771,
+        "input_stream_bytes": 84240,
+        "output_stream_bytes": 393216
+      },
+      "exact_optimization": "Compute once and broadcast to four timesteps. The source repeats one unchanged image before this stateless operator, so this removes three of four executions with exact output equivalence."
+    },
+    {
+      "name": "patch_embed.block1",
+      "source_operation": "LIF + Conv2d 3x3 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        48,
+        32,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        96,
+        32,
+        32
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 4096,
+        "reduction": 432,
+        "columns": 96,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 169869312,
+        "reduction_chunks": 1,
+        "compute_tiles": 3072,
+        "commands": 6150,
+        "input_stream_bytes": 10658304,
+        "output_stream_bytes": 3145728
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "patch_embed.block2",
+      "source_operation": "LIF + Conv2d 3x3 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        96,
+        32,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        192,
+        32,
+        32
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 4096,
+        "reduction": 864,
+        "columns": 192,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 679477248,
+        "reduction_chunks": 1,
+        "compute_tiles": 6144,
+        "commands": 12300,
+        "input_stream_bytes": 42633216,
+        "output_stream_bytes": 6291456
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "patch_embed.block3",
+      "source_operation": "LIF + MaxPool2d + Conv2d 3x3 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        192,
+        32,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        16,
+        16
+      ],
+      "hardware_primitive": "vector maximum + active-index sparse tensor tile",
+      "matrix": {
+        "rows": 1024,
+        "reduction": 1728,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 679477248,
+        "reduction_chunks": 1,
+        "compute_tiles": 3072,
+        "commands": 6168,
+        "input_stream_bytes": 43130880,
+        "output_stream_bytes": 3145728
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "patch_embed.block4",
+      "source_operation": "LIF + MaxPool2d + Conv2d 3x3 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        16,
+        16
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "vector maximum + active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 3456,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 339738624,
+        "reduction_chunks": 2,
+        "compute_tiles": 1536,
+        "commands": 3120,
+        "input_stream_bytes": 22560768,
+        "output_stream_bytes": 1572864
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.attn.q",
+      "source_operation": "LIF + Q Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.attn.k",
+      "source_operation": "LIF + K Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.attn.v",
+      "source_operation": "LIF + V Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.attn.qk",
+      "source_operation": "binary query times transposed binary key",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 32,
+        "columns": 64,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 1536,
+        "commands": 3264,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 1572864
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.attn.av",
+      "source_operation": "attention counts times binary value",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 64,
+        "columns": 32,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 768,
+        "commands": 1632,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.attn.proj",
+      "source_operation": "LIF + projection Conv1d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.mlp.fc1",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 1536,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 3072,
+        "commands": 6240,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 3145728
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.mlp.fc2",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 1536,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.0.residuals",
+      "source_operation": "two elementwise residual additions",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "saturating vector add",
+      "matrix": null,
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.attn.q",
+      "source_operation": "LIF + Q Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.attn.k",
+      "source_operation": "LIF + K Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.attn.v",
+      "source_operation": "LIF + V Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.attn.qk",
+      "source_operation": "binary query times transposed binary key",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 32,
+        "columns": 64,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 1536,
+        "commands": 3264,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 1572864
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.attn.av",
+      "source_operation": "attention counts times binary value",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 64,
+        "columns": 32,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 768,
+        "commands": 1632,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.attn.proj",
+      "source_operation": "LIF + projection Conv1d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.mlp.fc1",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 1536,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 3072,
+        "commands": 6240,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 3145728
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.mlp.fc2",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 1536,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.1.residuals",
+      "source_operation": "two elementwise residual additions",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "saturating vector add",
+      "matrix": null,
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.attn.q",
+      "source_operation": "LIF + Q Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.attn.k",
+      "source_operation": "LIF + K Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.attn.v",
+      "source_operation": "LIF + V Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.attn.qk",
+      "source_operation": "binary query times transposed binary key",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 32,
+        "columns": 64,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 1536,
+        "commands": 3264,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 1572864
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.attn.av",
+      "source_operation": "attention counts times binary value",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 64,
+        "columns": 32,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 768,
+        "commands": 1632,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.attn.proj",
+      "source_operation": "LIF + projection Conv1d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.mlp.fc1",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 1536,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 3072,
+        "commands": 6240,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 3145728
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.mlp.fc2",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 1536,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.2.residuals",
+      "source_operation": "two elementwise residual additions",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "saturating vector add",
+      "matrix": null,
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.attn.q",
+      "source_operation": "LIF + Q Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.attn.k",
+      "source_operation": "LIF + K Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.attn.v",
+      "source_operation": "LIF + V Conv1d 1x1 + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.attn.qk",
+      "source_operation": "binary query times transposed binary key",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 32,
+        "columns": 64,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 1536,
+        "commands": 3264,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 1572864
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.attn.av",
+      "source_operation": "attention counts times binary value",
+      "input_shape_per_image": [
+        4,
+        12,
+        64,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        12,
+        64,
+        32
+      ],
+      "hardware_primitive": "dense tensor tile",
+      "matrix": {
+        "rows": 64,
+        "reduction": 64,
+        "columns": 32,
+        "repetitions": 48,
+        "arithmetic": "dynamic_u8_mac",
+        "mac_equivalents": 6291456,
+        "reduction_chunks": 48,
+        "compute_tiles": 768,
+        "commands": 1632,
+        "input_stream_bytes": 491520,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.attn.proj",
+      "source_operation": "LIF + projection Conv1d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        64
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 37748736,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 2506752,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.mlp.fc1",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 384,
+        "columns": 1536,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 3072,
+        "commands": 6240,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 3145728
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.mlp.fc2",
+      "source_operation": "LIF + 1x1 Conv2d + folded BatchNorm",
+      "input_shape_per_image": [
+        4,
+        1536,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "active-index sparse tensor tile",
+      "matrix": {
+        "rows": 256,
+        "reduction": 1536,
+        "columns": 384,
+        "repetitions": 1,
+        "arithmetic": "binary_spike_add",
+        "mac_equivalents": 150994944,
+        "reduction_chunks": 1,
+        "compute_tiles": 768,
+        "commands": 1560,
+        "input_stream_bytes": 10027008,
+        "output_stream_bytes": 786432
+      },
+      "exact_optimization": null
+    },
+    {
+      "name": "block.3.residuals",
+      "source_operation": "two elementwise residual additions",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "hardware_primitive": "saturating vector add",
+      "matrix": null,
+      "exact_optimization": null
+    },
+    {
+      "name": "global_average_pool",
+      "source_operation": "mean over 64 tokens then mean over four timesteps",
+      "input_shape_per_image": [
+        4,
+        384,
+        8,
+        8
+      ],
+      "output_shape_per_image": [
+        384
+      ],
+      "hardware_primitive": "vector add followed by exact power-of-two shifts",
+      "matrix": null,
+      "exact_optimization": null
+    },
+    {
+      "name": "head",
+      "source_operation": "Linear classifier",
+      "input_shape_per_image": [
+        384
+      ],
+      "output_shape_per_image": [
+        10
+      ],
+      "hardware_primitive": "dense Dot8 tensor tile",
+      "matrix": {
+        "rows": 1,
+        "reduction": 384,
+        "columns": 10,
+        "repetitions": 1,
+        "arithmetic": "u8_mac",
+        "mac_equivalents": 3840,
+        "reduction_chunks": 1,
+        "compute_tiles": 1,
+        "commands": 3,
+        "input_stream_bytes": 6528,
+        "output_stream_bytes": 80
+      },
+      "exact_optimization": null
+    }
+  ],
+  "parameter_tensors": {
+    "patch_embed.block0_conv.weight": {
+      "shape": [
+        48,
+        3,
+        3,
+        3
+      ],
+      "elements": 1296,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block0_bn.weight": {
+      "shape": [
+        48
+      ],
+      "elements": 48,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block0_bn.bias": {
+      "shape": [
+        48
+      ],
+      "elements": 48,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block1_conv.weight": {
+      "shape": [
+        96,
+        48,
+        3,
+        3
+      ],
+      "elements": 41472,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block1_bn.weight": {
+      "shape": [
+        96
+      ],
+      "elements": 96,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block1_bn.bias": {
+      "shape": [
+        96
+      ],
+      "elements": 96,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block2_conv.weight": {
+      "shape": [
+        192,
+        96,
+        3,
+        3
+      ],
+      "elements": 165888,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block2_bn.weight": {
+      "shape": [
+        192
+      ],
+      "elements": 192,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block2_bn.bias": {
+      "shape": [
+        192
+      ],
+      "elements": 192,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block3_conv.weight": {
+      "shape": [
+        384,
+        192,
+        3,
+        3
+      ],
+      "elements": 663552,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block3_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block3_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block4_conv.weight": {
+      "shape": [
+        384,
+        384,
+        3,
+        3
+      ],
+      "elements": 1327104,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block4_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "patch_embed.block4_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.norm1.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.norm1.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.q_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.q_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.q_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.k_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.k_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.k_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.v_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.v_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.v_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.proj_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.proj_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.proj_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.attn.proj_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.norm2.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.norm2.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp1_conv.weight": {
+      "shape": [
+        1536,
+        384,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp1_conv.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp1_bn.weight": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp1_bn.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp2_conv.weight": {
+      "shape": [
+        384,
+        1536,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp2_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp2_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.0.mlp.mlp2_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.norm1.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.norm1.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.q_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.q_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.q_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.k_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.k_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.k_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.v_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.v_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.v_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.proj_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.proj_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.proj_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.attn.proj_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.norm2.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.norm2.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp1_conv.weight": {
+      "shape": [
+        1536,
+        384,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp1_conv.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp1_bn.weight": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp1_bn.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp2_conv.weight": {
+      "shape": [
+        384,
+        1536,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp2_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp2_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.1.mlp.mlp2_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.norm1.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.norm1.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.q_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.q_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.q_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.k_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.k_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.k_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.v_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.v_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.v_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.proj_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.proj_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.proj_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.attn.proj_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.norm2.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.norm2.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp1_conv.weight": {
+      "shape": [
+        1536,
+        384,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp1_conv.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp1_bn.weight": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp1_bn.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp2_conv.weight": {
+      "shape": [
+        384,
+        1536,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp2_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp2_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.2.mlp.mlp2_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.norm1.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.norm1.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.q_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.q_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.q_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.k_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.k_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.k_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.v_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.v_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.v_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.proj_conv.weight": {
+      "shape": [
+        384,
+        384,
+        1
+      ],
+      "elements": 147456,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.proj_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.proj_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.attn.proj_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.norm2.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.norm2.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp1_conv.weight": {
+      "shape": [
+        1536,
+        384,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp1_conv.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp1_bn.weight": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp1_bn.bias": {
+      "shape": [
+        1536
+      ],
+      "elements": 1536,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp2_conv.weight": {
+      "shape": [
+        384,
+        1536,
+        1,
+        1
+      ],
+      "elements": 589824,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp2_conv.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp2_bn.weight": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "block.3.mlp.mlp2_bn.bias": {
+      "shape": [
+        384
+      ],
+      "elements": 384,
+      "source_dtype": "float32"
+    },
+    "head.weight": {
+      "shape": [
+        10,
+        384
+      ],
+      "elements": 3840,
+      "source_dtype": "float32"
+    },
+    "head.bias": {
+      "shape": [
+        10
+      ],
+      "elements": 10,
+      "source_dtype": "float32"
+    }
+  },
+  "semantic_notes": [
+    "BatchNorm is folded into the preceding learned projection in evaluation mode.",
+    "The checkpoint's LayerNorm parameters are retained for strict loading but are not called by its upstream forward graph.",
+    "Binary-spike layers use signed int8 weights and addition/subtraction; MAC-equivalents are reported only for comparison with dense execution.",
+    "QK and attention-value products have two dynamic operands and therefore use the exact dynamic-u8 path in this manifest.",
+    "DDR traffic is not inferred from the summed tile streams because the final on-chip buffer schedule determines which operands are retained or spilled."
+  ]
+}

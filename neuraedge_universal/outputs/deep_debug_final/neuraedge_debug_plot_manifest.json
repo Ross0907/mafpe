@@ -1,0 +1,254 @@
+{
+  "format": "neuraedge-deep-debug-v1",
+  "plot_count": 49,
+  "plots": [
+    {
+      "filename": "01_evidence_summary.png",
+      "title": "Measured evidence summary",
+      "evidence": "evaluation JSON, execution manifest, parameter manifest"
+    },
+    {
+      "filename": "02_full_graph_validation.png",
+      "title": "Complete exported-graph trace validation",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\regression\\real_full_graph_forward_validation.json"
+    },
+    {
+      "filename": "03_artifact_integrity.png",
+      "title": "Final PYNQ artifact integrity",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full"
+    },
+    {
+      "filename": "04_float_confusion.png",
+      "title": "Checkpoint confusion matrix: 10,000 images",
+      "evidence": "full CIFAR-10 prediction NPZ/JSON"
+    },
+    {
+      "filename": "05_quant_confusion.png",
+      "title": "Exported integer confusion matrix: 10,000 images",
+      "evidence": "full CIFAR-10 prediction NPZ/JSON"
+    },
+    {
+      "filename": "06_confusion_delta.png",
+      "title": "Integer minus checkpoint confusion counts",
+      "evidence": "full CIFAR-10 prediction NPZ/JSON"
+    },
+    {
+      "filename": "07_class_accuracy.png",
+      "title": "Per-class top-1 accuracy",
+      "evidence": "full CIFAR-10 confusion matrices"
+    },
+    {
+      "filename": "08_margin_distribution.png",
+      "title": "Classifier margin distribution",
+      "evidence": "all 10,000 checkpoint and integer logits"
+    },
+    {
+      "filename": "09_logit_error.png",
+      "title": "Integer-export logit error",
+      "evidence": "paired 10,000 x 10 logit arrays"
+    },
+    {
+      "filename": "10_prediction_changes.png",
+      "title": "Prediction disagreement transitions",
+      "evidence": "257 changed predictions from paired NPZ files"
+    },
+    {
+      "filename": "11_spike_density.png",
+      "title": "Measured spike density",
+      "evidence": "streaming activation statistics over all CIFAR-10 test images"
+    },
+    {
+      "filename": "12_qkv_density.png",
+      "title": "Q/K/V spike density",
+      "evidence": "full-test streaming activation statistics"
+    },
+    {
+      "filename": "13_activation_moments.png",
+      "title": "Activation mean and spread",
+      "evidence": "full-test streaming activation moments"
+    },
+    {
+      "filename": "14_operator_macs.png",
+      "title": "Model work by learned operator",
+      "evidence": "execution manifest generated from exported tensor shapes"
+    },
+    {
+      "filename": "15_operator_commands.png",
+      "title": "Tile commands by learned operator",
+      "evidence": "execution manifest generated from exported tensor shapes"
+    },
+    {
+      "filename": "16_operator_traffic.png",
+      "title": "Operator stream traffic",
+      "evidence": "execution manifest; excludes inter-layer DDR spill"
+    },
+    {
+      "filename": "17_arithmetic_share.png",
+      "title": "Arithmetic mode share",
+      "evidence": "execution manifest model-equivalent operation counts"
+    },
+    {
+      "filename": "18_matrix_shapes.png",
+      "title": "Matrix shape landscape",
+      "evidence": "execution manifest; marker area tracks output-row count"
+    },
+    {
+      "filename": "19_projection_quantization.png",
+      "title": "Projection quantization diagnostics",
+      "evidence": "hashed hardware parameter manifest"
+    },
+    {
+      "filename": "20_weight_distribution.png",
+      "title": "Exported weight distribution",
+      "evidence": "direct section views from the SHA-256-checked parameter binary"
+    },
+    {
+      "filename": "21_compiler_benchmark.png",
+      "title": "Largest-layer compiler benchmark",
+      "evidence": "recorded scalar baseline and outputs/benchmarks/compiler_block3_memory.json"
+    },
+    {
+      "filename": "22_training_schedule.png",
+      "title": "Full-backbone training schedule and numeric contract",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\training\\spikingformer_training_coverage.json"
+    },
+    {
+      "filename": "23_training_parameters.png",
+      "title": "Trainable deployed parameter distribution",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\training\\spikingformer_training_coverage.json"
+    },
+    {
+      "filename": "24_training_backward_work.png",
+      "title": "Exact learned-layer backward work",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\training\\spikingformer_training_coverage.json"
+    },
+    {
+      "filename": "25_training_operator_coverage.png",
+      "title": "Backward operator coverage and work composition",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\training\\spikingformer_training_coverage.json"
+    },
+    {
+      "filename": "26_training_dataset_shards.png",
+      "title": "Deterministic CIFAR-10 board-training shards",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\cifar10_shards\\cifar10_shards_manifest.json"
+    },
+    {
+      "filename": "27_wave_mac2_u8.png",
+      "title": "Waveform: tb_neuraedge_mac2_u8",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 2 us; signals: dsp_product_valid_r, packed_product, product_hi, product_lo, product_valid, product_valid_r, activation, extended_activation_r, packed_weight_r, weight_hi"
+    },
+    {
+      "filename": "28_wave_tensor_tile.png",
+      "title": "Waveform: tb_neuraedge_tensor_tile",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 3 us; signals: state, issue_valid, issue_ready, result_valid, result_ready, debug_spike_adds, debug_spike_adds_r, spike_value, debug_dense_macs, debug_dense_macs_r"
+    },
+    {
+      "filename": "29_wave_buffered_tensor_core.png",
+      "title": "Waveform: tb_neuraedge_buffered_tensor_core",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 4 us; signals: state, command_valid, s_axis_tvalid, s_axis_tready, tile_issue_valid, issue_valid, tile_issue_ready, issue_ready, tile_result_valid, result_valid"
+    },
+    {
+      "filename": "30_wave_alpha_xnor.png",
+      "title": "Waveform: tb_neuraedge_alpha_xnor",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 40 us; signals: state, output_valid, output_ready, final_spike_count_r, key_spikes, query_spikes, score_spike_operand_r, spike_chunk_count_r, spike_count_r, spike_mask_r"
+    },
+    {
+      "filename": "31_wave_vector_alu.png",
+      "title": "Waveform: tb_neuraedge_vector_alu",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 170 us; signals: state, output_valid, output_ready, OP_BINARY_SPIKE, OP_TERNARY_SPIKE, multiplier_product_hh, multiplier_product_hl, multiplier_product_lh, multiplier_product_ll, product_cross_r"
+    },
+    {
+      "filename": "32_wave_integer_primitives.png",
+      "title": "Waveform: tb_neuraedge_integer_primitives",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 90 us; signals: state, div_output_valid, sqrt_output_valid, output_valid, div_output_ready, sqrt_output_ready, output_ready"
+    },
+    {
+      "filename": "33_wave_normalization_units.png",
+      "title": "Waveform: tb_neuraedge_normalization_units",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 405 us; signals: state, ln_result_valid, result_valid, ln_result_ready, result_ready, divider_output_valid, sqrt_output_valid, output_valid, divider_output_ready, sqrt_output_ready"
+    },
+    {
+      "filename": "34_wave_lif_bank.png",
+      "title": "Waveform: tb_neuraedge_lif_bank",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 20 us; signals: state, output_valid, output_ready, completed_step_spike_count_r, group_spikes_r, spike_work_r, spikes, step_spike_count_r, total_spike_count, group_spike_count"
+    },
+    {
+      "filename": "35_wave_linear_backward8.png",
+      "title": "Waveform: tb_neuraedge_linear_backward8",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 1 ms; signals: state, s_axis_tvalid, s_axis_tready, m_axis_tlast, MODE_WEIGHT_GRADIENT, packed_weight_gradient, weight_gradient_shift"
+    },
+    {
+      "filename": "36_wave_sgd_optimizer8.png",
+      "title": "Waveform: tb_neuraedge_sgd_optimizer8",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 20 us; signals: state, output_valid, output_ready, update_count, updated_weight_vector, weight_decay_q16, weight_decay_r, weight_vector, held_weight"
+    },
+    {
+      "filename": "37_wave_activation_lut8.png",
+      "title": "Waveform: tb_neuraedge_activation_lut8",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 20 us; signals: lookup_result_valid_r, lookup_result_ready, output_valid, output_ready, result_fifo_count"
+    },
+    {
+      "filename": "38_wave_universal_core.png",
+      "title": "Waveform: tb_neuraedge_universal_core",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 50 us; signals: state, command_valid, tensor_command_valid, s_axis_tvalid, s_axis_tready, tile_issue_valid, issue_valid, tile_issue_ready, issue_ready, ln_result_valid"
+    },
+    {
+      "filename": "39_wave_descriptor_sequencer.png",
+      "title": "Waveform: tb_neuraedge_descriptor_sequencer",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 2 us; signals: program_active, program_done, program_error, state, core_command_valid, input_fifo_count_r, s_axis_tvalid, s_axis_tready, core_s_valid, core_s_ready"
+    },
+    {
+      "filename": "40_wave_pynq_descriptor.png",
+      "title": "Waveform: tb_neuraedge_pynq_descriptor",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 2 us; signals: program_active, program_done, program_error, state, sequencer_core_command_valid, command_valid, tensor_command_valid, core_command_valid, input_fifo_count, input_fifo_count_r"
+    },
+    {
+      "filename": "41_wave_pynq_axi_top.png",
+      "title": "Waveform: tb_neuraedge_pynq_axi_top",
+      "evidence": "Vivado 2026.1 XSim VCD, requested window 5 us; signals: program_active, program_done, program_error, state, sequencer_core_command_valid, command_valid, tensor_command_valid, core_command_valid, input_fifo_count, input_fifo_count_r"
+    },
+    {
+      "filename": "42_clock_domain_timing.png",
+      "title": "Routed timing by clock domain",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_routed_timing_summary.rpt"
+    },
+    {
+      "filename": "43_full_routed_resources.png",
+      "title": "Full PYNQ routed resource utilization",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_routed_utilization_hierarchical.rpt"
+    },
+    {
+      "filename": "44_resource_hierarchy.png",
+      "title": "Resource use by full-system hierarchy",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_routed_utilization_hierarchical.rpt"
+    },
+    {
+      "filename": "45_drc_classification.png",
+      "title": "DRC warning classification",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_drc.rpt"
+    },
+    {
+      "filename": "46_cdc_classification.png",
+      "title": "Clock-domain crossing classification",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_cdc.rpt"
+    },
+    {
+      "filename": "47_power_comparison.png",
+      "title": "Vectorless and SAIF-annotated power estimates",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_vectorless_power.rpt; C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\power_activity_full\\vivado_reports\\routed_saif_power.rpt; SAIF match 7%   (9164/123250)"
+    },
+    {
+      "filename": "48_power_confidence.png",
+      "title": "Power confidence and annotation coverage",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\power_activity_full\\vivado_reports\\routed_saif_power.rpt"
+    },
+    {
+      "filename": "49_routed_timing.png",
+      "title": "Routed timing path distribution",
+      "evidence": "C:\\Users\\Ross\\Downloads\\neuraedge--main\\neuraedge--main\\neuraedge_universal\\outputs\\pynq_full\\full_routed_timing_paths_250.rpt"
+    }
+  ],
+  "multipage_pdf": "neuraedge_deep_debug_plots.pdf",
+  "latex": "neuraedge_deep_debug_report.tex",
+  "native_vivado_block_design": "pynq-block-design.pdf"
+}

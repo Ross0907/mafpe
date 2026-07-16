@@ -1,0 +1,188 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Jul 14 15:00:00 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_neuraedge_universal_core_wave_snapshot/xsim_script.tcl
+# xsim {tb_neuraedge_universal_core_wave_snapshot} -wdb {C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\neuraedge_universal\outputs\waveforms_final\wdb\tb_neuraedge_universal_core.wdb} -autoloadwcfg -tclbatch {C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/scripts/capture_waveform.tcl} -onfinish quit -onerror quit
+Time resolution is 1 ps
+source C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/scripts/capture_waveform.tcl
+## if {![info exists ::env(NEURAEDGE_VCD_PATH)]} {
+##     error "NEURAEDGE_VCD_PATH is required"
+## }
+## if {![info exists ::env(NEURAEDGE_WAVE_AMOUNT)]} {
+##     error "NEURAEDGE_WAVE_AMOUNT is required"
+## }
+## if {![info exists ::env(NEURAEDGE_WAVE_UNIT)]} {
+##     error "NEURAEDGE_WAVE_UNIT is required"
+## }
+## set vcd_path [file normalize $::env(NEURAEDGE_VCD_PATH)]
+## set run_amount $::env(NEURAEDGE_WAVE_AMOUNT)
+## set run_unit $::env(NEURAEDGE_WAVE_UNIT)
+## open_vcd $vcd_path
+## log_vcd [get_objects -r /*]
+INFO: HDL object /tb_neuraedge_universal_core/vector_command_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/vector_a_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/vector_b_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/vector_expected_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/optimizer_parameter_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/optimizer_weight_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/optimizer_gradient_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/optimizer_velocity_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/optimizer_expected_weight_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/optimizer_expected_velocity_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/ln_value_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/ln_gamma_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/ln_beta_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/ln_expected_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/sm_score_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/sm_expected_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/train_expected_dx is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/train_expected_dw is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/weight_read_data is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/issue_fifo_last_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/issue_fifo_activation_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/issue_fifo_outer_weights_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/issue_fifo_dot_weights_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/tensor_output_fifo_data_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/tensor_output_fifo_last_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_active_index_buffer/memory is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_activation_buffer/memory is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[0].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[0].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[1].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[1].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[2].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[2].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[3].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[3].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[4].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[4].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[5].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[5].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[6].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[6].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[7].u_weight_bank /memory0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/\g_weight_bank[7].u_weight_bank /memory1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/accumulator is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/accumulator_clear_row_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/column_sum_clear_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/accumulate_delta_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/row_sum is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/column_sum is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/row_increment_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/column_increment_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/pread_accumulator_by_row_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/result_fifo_payload_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/mac_activation is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/mac_weight_lo is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/mac_weight_hi is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/mac_product_lo is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/mac_product_hi is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/mac_product_valid is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot_pair_lo_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot_pair_hi_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot_half_lo_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot_half_hi_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot_sum_lo_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot_sum_hi_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot8_row_pair_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot8_column_pair_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot8_row_half_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dot8_column_half_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dense_weight_lo_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/dense_weight_hi_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_tensor_core/u_tensor_tile/sparse_delta_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_alpha_xnor/spike_nibble_count_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_alpha_xnor/zero_nibble_count_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_alpha_xnor/spike_pair_count_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_alpha_xnor/zero_pair_count_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_alpha_xnor/spike_half_count_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_alpha_xnor/zero_half_count_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_layernorm/value_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_layernorm/gamma_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_layernorm/beta_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_softmax/score_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_softmax/exponent_mem is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/membrane is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/pre_reset_membrane is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/group_membrane_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/group_current_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/leak_shifted_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/leaked_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/integrated_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_lif_bank/saturated_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/weight_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/gradient_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/velocity_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/next_velocity_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/momentum_term_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/decay_term_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/two_term_sum_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/velocity_sum_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/product_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/product_negative_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/product_magnitude_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/rounded_magnitude_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/signed_rounded_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/update_value_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/weight_difference_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/multiplier_left is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/multiplier_right is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/multiplier_operand_left_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/multiplier_operand_right_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/multiplier_product is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_optimizer/multiplier_product_pipeline_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/activation_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/weight_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/output_gradient_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/accumulator_bank_read_data is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/accumulator_bank_write_data is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/result_row_buffer_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/row_partial_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/reduction_sum_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/selected_accumulator_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/accumulated_wide_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/commit_lane_valid_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/rounding_value_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/rounding_negative_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/rounding_carry_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/saturated_result_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/activation_write_enable_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/weight_write_enable_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/output_gradient_write_enable_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_left is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_right is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_left_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_right_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_left_dsp_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_right_dsp_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/multiplier_product is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/product_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/pair_sum_r is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/result_column_index is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/reduction_index is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/\g_accumulator_bank[0].u_bank /memory is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/\g_accumulator_bank[1].u_bank /memory is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/\g_accumulator_bank[2].u_bank /memory is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_linear_backward/\g_accumulator_bank[3].u_bank /memory is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem0 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem1 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem2 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem3 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem4 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem5 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem6 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/lut_mem7 is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/result_fifo_values is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+INFO: HDL object /tb_neuraedge_universal_core/dut/u_activation_lut/result_fifo_loaded_masks is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5.
+## log_wave -r /*
+## run $run_amount $run_unit
+tb_neuraedge_universal_core PASSED commands=15 input_beats=88 output_beats=61
+$finish called at time : 8420 ns : File "C:/Users/Ross/Downloads/neuraedge--main/neuraedge--main/neuraedge_universal/tb/tb_neuraedge_universal_core.sv" Line 503
+exit 0
+INFO: [Common 17-206] Exiting xsim at Tue Jul 14 15:00:03 2026...

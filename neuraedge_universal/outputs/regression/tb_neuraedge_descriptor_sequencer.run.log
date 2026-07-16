@@ -1,0 +1,2 @@
+tb_neuraedge_descriptor_sequencer PASSED records=1
+C:\Users\Ross\Downloads\neuraedge--main\neuraedge--main\github_private_release\mafpe_push\neuraedge_universal\tb\tb_neuraedge_descriptor_sequencer.sv:213: $finish called at 210000 (1ps)
